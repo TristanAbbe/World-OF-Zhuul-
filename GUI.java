@@ -11,6 +11,7 @@ public class GUI {
     private Alice alice;
     private JProgressBar hungerProgressBar;
     private JLabel roomImageLabel;
+    private JPanel centerLeftPanel; // Déclarer centerLeftPanel comme un champ de classe
 
     public GUI() {
         this.alice = new Alice();
@@ -25,11 +26,12 @@ public class GUI {
 
         // Center panel with Grid
         JPanel centerPanel = new JPanel(new GridLayout(1, 3));
-        JPanel centerLeftPanel = new JPanel(new GridLayout(2, 1));
+        centerLeftPanel = new JPanel(new GridLayout(2, 1)); // Initialiser centerLeftPanel
         JPanel centerRightPanel = new JPanel(new BorderLayout());
 
         JTextArea descriptionArea = new JTextArea();
-        descriptionArea.setText("test"); // À remplacer par afficheDescriptionSalle()
+        // À remplacer par afficheDescriptionSalle()
+        descriptionArea.setText("test");
         descriptionArea.setEditable(false);
         centerLeftPanel.add(descriptionArea);
 
@@ -38,7 +40,7 @@ public class GUI {
         // Créer une instance de JLabel avec une ImageIcon
         roomImageLabel = new JLabel();
         centerPanel.add(roomImageLabel);
-                
+
         // Create inventory label
         JLabel inventoryLabel = afficheInventaire();
         centerRightPanel.add(inventoryLabel, BorderLayout.NORTH);
@@ -170,22 +172,50 @@ public class GUI {
     }
 
     private void updateRoomImage() {
-        String roomImage = game.updateRoomImage();
-        ImageIcon originalIcon = new ImageIcon(roomImage);
-        // Définir la taille maximale souhaitée pour l'image (ajustez selon vos besoins)
-        int maxWidth = 400;
-        int maxHeight = 400;
+    Room currentRoom = game.getCurrentRoom();
 
-        // Redimensionner l'image si elle dépasse la taille maximale
-        Image scaledImage = originalIcon.getImage().getScaledInstance(
-            maxWidth, maxHeight, Image.SCALE_SMOOTH);
-    
-        // Créer un nouvel ImageIcon avec l'image redimensionnée
-        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+    // Mettre à jour le texte avec le nom, la description et les sorties de la chambre actuelle
+    String roomInfo = String.format("You are in: %s\n\nDescription: %s\n\n%s",
+            currentRoom.getName(),
+            currentRoom.getDescription(),
+            currentRoom.getExitString());
 
-        roomImageLabel.setIcon(scaledIcon);
-        
+    // Mettre à jour le panneau texte avec JScrollPane
+    JTextArea descriptionArea = new JTextArea(roomInfo);
+    descriptionArea.setEditable(false);
+    descriptionArea.setLineWrap(true);            // Activer le saut de ligne automatique
+    descriptionArea.setWrapStyleWord(true);
+
+    // Créer un JScrollPane pour envelopper la JTextArea
+    JScrollPane scrollPane = new JScrollPane(descriptionArea);
+
+    // Vérifier si centerLeftPanel est initialisé
+    if (centerLeftPanel == null) {
+        centerLeftPanel = new JPanel(new GridLayout(2, 1));
     }
+
+    // Effacer le contenu actuel du panneau gauche
+    centerLeftPanel.removeAll();
+    // Ajouter le JScrollPane au panneau gauche
+    centerLeftPanel.add(scrollPane);
+    // Régénérer et redessiner le panneau
+    centerLeftPanel.revalidate();
+    centerLeftPanel.repaint();
+
+    // Mettre à jour l'image de la chambre
+    String roomImage = currentRoom.getLienImage();
+    ImageIcon originalIcon = new ImageIcon(roomImage);
+
+    int maxWidth = 400;
+    int maxHeight = 400;
+
+    Image scaledImage = originalIcon.getImage().getScaledInstance(
+            maxWidth, maxHeight, Image.SCALE_SMOOTH);
+
+    ImageIcon scaledIcon = new ImageIcon(scaledImage);
+    roomImageLabel.setIcon(scaledIcon);
+}
+
 
     public JLabel afficheInventaire() {
         List<Item> inventory = alice.getInventory();
