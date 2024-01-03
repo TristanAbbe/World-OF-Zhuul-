@@ -12,7 +12,7 @@ public class Dumbyard extends Room
      */
     public Dumbyard()
     {
-        super("This place is quite primitive, a civilized person wouldn't stay there long...","Dumbyard");
-        //ImagesAlice/dumbyard.jfif
+        super("This place is quite primitive, a civilized person wouldn't stay there long...","Dumbyard", "ImagesAlice/dumbyard.jfif");
+        //setExit("East", new Weeping_swamp());
     }
 }

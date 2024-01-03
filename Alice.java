@@ -10,9 +10,9 @@ import javax.swing.JOptionPane;
 public class Alice extends Character
 {
     // variables d'instance - remplacez l'exemple qui suit par le vôtre/**
-    List<Item> inventory = new ArrayList<>();
-    private static  Room room; 
+    List<Item> inventory = new ArrayList<>(); 
     private int hunger;
+    private Room room;
     private boolean death = false ;
     private Room currentRoom ;
     
@@ -20,17 +20,17 @@ public class Alice extends Character
     {
         // initialisation des variables d'instance
         super("Alice", "Hello, I am Alice");
-        
+        //currentRoom = new Humid_hut();
     }
     
-    public static  void setRoom(Room currentRoom)
+    public void setCurrentRoom(Room room)
     {
-        room=currentRoom;
+        currentRoom = room;
     }
     
-    public static Room getRoom()
+    public Room getCurrentRoom()
     {
-        return room;
+        return currentRoom;
     }
     
         public void addItem(Item item)
@@ -92,6 +92,7 @@ public class Alice extends Character
 
             if (hunger == 0) {
                 death = true;
+                System.out.println("You died of hunger");
             }
         }
     }

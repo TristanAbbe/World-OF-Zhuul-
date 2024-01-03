@@ -17,8 +17,9 @@ public class Smokey_lobby extends Room
     {
         // initialisation des variables d'instance
         super("The cloud is denser in this room, it seems to be miles long. A pink elephant appeared for a moment, it's very strange."
-        +" Colors become sounds and everything seems to be more intense. It seems that this fog confers extraordinary abilities.", "Smokey Lobby");
-        //ImagesAlice/Smokey_lobby.png
+        +" Colors become sounds and everything seems to be more intense. It seems that this fog confers extraordinary abilities.", "Smokey Lobby", "ImagesAlice/Smokey_lobby.png");
+        //setExit("West", new Sweating_room());
+        //setExit("East", new Caterpillar_craddle());
     }
 
     /**

@@ -1,5 +1,7 @@
 import java.util.HashMap;
 import java.util.Set;
+import java.util.Map;
+import javax.swing.ImageIcon;
 /**
  * Class Room - a room in an adventure game.
  * This class is part of a text-based adventure game.
@@ -14,20 +16,19 @@ import java.util.Set;
 public class Room {
     private String name;
     private String description;
+    private String lienImage;
     private HashMap<String, Room> exits;
-    //private int x;
-    //private int y;
     private Character character;
     private int status; // statu 0 (=>pas le dialogue car le joueur n'a pas fais certaines chose), 
     //1 (=>dialogue se fait) 2(=> Alice a terminer sur cette map). Gére quel dialogue on a déclencher.
     private Item item;
-    private String lienImage;
     
-    public Room(String description,String name) 
+    public Room(String description, String name, String lienImage) 
     {
-        setName(name);
-        setDescription(description);
-        exits = new HashMap<>();
+        this.description = description;
+        this.name = name;
+        this.lienImage = lienImage;
+        this.exits = new HashMap<>();
         //this.lienImage = lienImage; ajout du lien de l'image
     }
 

@@ -16,8 +16,8 @@ public class Twins_bin_den extends Room
     public Twins_bin_den()
     {
         // initialisation des variables d'instance
-        super("This place looks dangerous! Better to keep both eyes open...", "Twins' Bin Den");
-        //ImagesAlice/TwinsBinDen.png
+        super("This place looks dangerous! Better to keep both eyes open...", "Twins' Bin Den", "ImagesAlice/TwinsBinDen.png");
+        //setExit("East", new No_rest_forest());
     }
 
     public void ajouterPersonnage()

@@ -16,8 +16,8 @@ public class Lowland_woodland extends Room
     public Lowland_woodland()
     {
         // initialisation des variables d'instance
-        super("Plains as far as the eye can see. I don't want to get lost...","Lowland Woodland");
-        //ImagesAlice/LowlandWoodland.png
+        super("Plains as far as the eye can see. I don't want to get lost...","Lowland Woodland", "ImagesAlice/LowlandWoodland.png");
+        //setExit("East", new Menace_palace());
     }
 
     /**

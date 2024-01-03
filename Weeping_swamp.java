@@ -13,7 +13,9 @@ public class Weeping_swamp extends Room
     public Weeping_swamp()
     {
         super ("A not very welcoming swamp, the smells emanating from this place are so unpleasant that they make me cry."
-        +" I wonder what could be hiding in this slush...", "Weeping Swamp");
-        //ImagesAlice/Weeping_swamp.png
+        +" I wonder what could be hiding in this slush...", "Weeping Swamp", "ImagesAlice/dumbyard.jfif");
+        //setExit("East", new Beaver_river());
+        //setExit("West", new Dumbyard());
+        //setExit("South",new Bunny_lobby());
     }
 }

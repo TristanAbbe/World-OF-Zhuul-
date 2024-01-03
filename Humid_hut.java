@@ -13,7 +13,7 @@ public class Humid_hut extends Room
     public Humid_hut()
     {
         // initialisation des variables d'instance
-        super ("A small, scary and dark dirthole","Humid Hut");
-        //ImagesAlice/Humid_hut.png
+        super ("A small, scary and dark dirthole","Humid Hut", "ImagesAlice/Humid_hut.png");
+        //setExit("South", new Catwalk());
     }
 }

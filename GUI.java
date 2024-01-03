@@ -4,73 +4,70 @@ import java.util.ArrayList;
 import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.URL;
+
 public class GUI {
     private AliceInWonderlandGame game;
-    private Character character;
-    private Room currentRoomG;
+    private Room currentRoomG;  // Utilisez la classe Room pour représenter la salle actuelle
     private JTextArea dialogueTextArea;
-    private Alice alice; 
-    private Item item ;
+    private Alice alice;
     private JProgressBar hungerProgressBar;
+    private JLabel roomImageLabel;
+
     public GUI() {
-        JFrame frame = new JFrame("Nested Layout Example");
+        this.alice = new Alice();
+        this.game = new AliceInWonderlandGame();
+        roomImageLabel = new JLabel();
+        updateRoomImage();
+        
+        JFrame frame = new JFrame("Alice in Wonderland Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Main content panel with BorderLayout
         JPanel mainPanel = new JPanel(new BorderLayout());
-        
+
         // Center panel with Grid
-        JPanel centerPanel = new JPanel(new GridLayout (1,3));
-        JPanel centerLeftPanel = new JPanel(new GridLayout (2,1));
+        JPanel centerPanel = new JPanel(new GridLayout(1, 3));
+        JPanel centerLeftPanel = new JPanel(new GridLayout(2, 1));
         JPanel centerRightPanel = new JPanel(new BorderLayout());
 
         JTextArea descriptionArea = new JTextArea();
-        descriptionArea.setText("test");// a remplacer par afficheDescriptionSalle()
+        descriptionArea.setText("test"); // À remplacer par afficheDescriptionSalle()
         descriptionArea.setEditable(false);
         centerLeftPanel.add(descriptionArea);
-        
-        centerPanel.add(centerLeftPanel);
-        
 
-        
+        centerPanel.add(centerLeftPanel);
+
         // Créer une instance de JLabel avec une ImageIcon
-        
-        ImageIcon imageIcon = new ImageIcon("Images_Alice/Beaver_river.jpg"); 
-        JLabel imageLabel = new JLabel(imageIcon);
-        centerPanel.add(new JLabel(imageIcon));
-                
-        
-        
+        roomImageLabel = new JLabel();
+        centerPanel.add(roomImageLabel);
+
         // Create inventory label
-        //JLabel inventoryLabel = afficheInventaire();
-        //centerRightPanel.add(inventoryLabel, BorderLayout.NORTH);
+        JLabel inventoryLabel = afficheInventaire();
+        centerRightPanel.add(inventoryLabel, BorderLayout.NORTH);
 
         // Create hunger progress bar
-        JProgressBar hungerProgressBar = new JProgressBar(0, 100);
+        hungerProgressBar = new JProgressBar(0, 100);
         hungerProgressBar.setStringPainted(true); // Show percentage text
         centerRightPanel.add(hungerProgressBar, BorderLayout.SOUTH);
 
         centerPanel.add(centerRightPanel);
-        
-        
-        
-        
+
         mainPanel.add(centerPanel, BorderLayout.CENTER);
+
         // South panel
         JPanel southPanel = new JPanel(new FlowLayout());
-        JPanel southWestPanel = new JPanel(new GridLayout (3,3));
-        
+        JPanel southWestPanel = new JPanel(new GridLayout(3, 3));
+
         JButton emptyButton1 = new JButton();
         JButton emptyButton2 = new JButton();
         JButton emptyButton3 = new JButton();
         JButton emptyButton4 = new JButton();
         JButton emptyButton5 = new JButton();
-        
-        JButton moveLeftButton = new JButton("Left");
-        JButton moveUpButton = new JButton("Up");
-        JButton moveDownButton = new JButton("Down");
-        JButton moveRightButton = new JButton("Right");
+
+        JButton moveLeftButton = new JButton("Ouest");
+        JButton moveUpButton = new JButton("North");
+        JButton moveDownButton = new JButton("South");
+        JButton moveRightButton = new JButton("East");
 
         // Create movement buttons
         southWestPanel.add(emptyButton1);
@@ -83,6 +80,7 @@ public class GUI {
         southWestPanel.add(moveRightButton);
         southWestPanel.add(emptyButton5);
         southPanel.add(southWestPanel);
+
         // Add ActionListener to the movement buttons
         moveLeftButton.addActionListener(new ActionListener() {
             @Override
@@ -111,31 +109,29 @@ public class GUI {
                 handleMove("East");
             }
         });
-        
+
         // Create actions buttons
         JButton actionButton = new JButton("Action");
-        actionButton.addActionListener(new ActionListener()
-        {
-           @Override
-           public void actionPerformed(ActionEvent e){
-               action();
-           }
-        });
-        
-        JButton parlerButton = new JButton("Parler");
-        parlerButton.addActionListener(new ActionListener() 
-        {
+        actionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                parler(); 
+                action();
+            }
+        });
+
+        JButton parlerButton = new JButton("Parler");
+        parlerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                parler();
             }
         });
         southPanel.add(actionButton);
         southPanel.add(parlerButton);
-        
+
         JPanel southeastPanel = new JPanel(new BorderLayout());
         dialogueTextArea = new JTextArea();
-        dialogueTextArea.setEditable(false);  // Make it non-editable
+        dialogueTextArea.setEditable(false); // Make it non-editable
         southeastPanel.add(new JScrollPane(dialogueTextArea), BorderLayout.CENTER);
         mainPanel.add(southPanel, BorderLayout.SOUTH);
 
@@ -144,7 +140,7 @@ public class GUI {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
-    
+
     public void parler() {
         // Check if the current room has a character
         if (currentRoomG != null && currentRoomG.getCharacter() != null) {
@@ -156,27 +152,31 @@ public class GUI {
             appendDialogue("There is no one to parler with in this room.");
         }
     }
-        // Method to append dialogue to the TextArea
+
+    // Method to append dialogue to the TextArea
     private void appendDialogue(String dialogue) {
         dialogueTextArea.append(dialogue + "\n");
     }
+
     // Method to handle movement based on the button clicked
     private void handleMove(String direction) {
-        alice.move(direction);
+        game.movePlayer(direction);
         updateHungerProgressBar();
+        updateRoomImage();
     }
-    
+
     private void updateHungerProgressBar() {
         int hunger = alice.getHunger();
         hungerProgressBar.setValue(hunger);
         hungerProgressBar.setString("Hunger: " + hunger + "%");
     }
-    
-    public String afficheDescriptionSalle() {
-    Room currentRoomG = game.getCurrentRoom();
-    return currentRoomG.getDescription();
+
+    private void updateRoomImage() {
+        String roomImage = game.getCurrentRoom().getLienImage();
+        ImageIcon imageIcon = new ImageIcon(roomImage);
+        roomImageLabel.setIcon(imageIcon);
     }
-    
+
     public JLabel afficheInventaire() {
         List<Item> inventory = alice.getInventory();
         // Create a label to hold the inventory icons
@@ -201,22 +201,16 @@ public class GUI {
 
         return inventoryLabel;
     }
-    
-    public void action(){
-        
-    }
-    
-    public String imageRoom(){
-        Room currentRoomG = game.getCurrentRoom();
-        return(currentRoomG.getLienImage());
-    }
 
-    
-    public static void main() {
+    public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 new GUI();
             }
         });
+    }
+    
+    public void action(){
+        
     }
 }

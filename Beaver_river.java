@@ -13,7 +13,8 @@ public class Beaver_river extends Room
     public Beaver_river()
     {
        super("A small river, not that deep. However, a small animal would not be able to swim across it without a good tail.", 
-        "Beaver River");
-        //ImagesAlice/Beaver_river.jpg
+        "Beaver River","ImagesAlice/Beaver_river.jpg");
+        //setExit("North", new Blowhard_courtyard());
+        //setExit("West", new Weeping_swamp());
     }
 }
