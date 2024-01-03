@@ -26,7 +26,6 @@ public class Twins extends Character
         if (miniGame.aliceWonTwins){
             giveItem();
         }
-        
     }
     
     public void giveItem() {

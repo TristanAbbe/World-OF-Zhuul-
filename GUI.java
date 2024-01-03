@@ -1,13 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class GUI {
     private AliceInWonderlandGame game;
-    private Room currentRoomG;  // Utilisez la classe Room pour représenter la salle actuelle
+    private Room currentRoomG;
     private JTextArea dialogueTextArea;
     private Alice alice;
     private JProgressBar hungerProgressBar;
@@ -18,7 +17,6 @@ public class GUI {
         this.game = new AliceInWonderlandGame();
         roomImageLabel = new JLabel();
         updateRoomImage();
-        
         JFrame frame = new JFrame("Alice in Wonderland Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -172,7 +170,7 @@ public class GUI {
     }
 
     private void updateRoomImage() {
-        String roomImage = game.getCurrentRoom().getLienImage();
+        String roomImage = game.updateRoomImage();
         ImageIcon imageIcon = new ImageIcon(roomImage);
         roomImageLabel.setIcon(imageIcon);
     }
@@ -209,8 +207,8 @@ public class GUI {
             }
         });
     }
-    
-    public void action(){
-        
+
+    public void action() {
+
     }
 }
