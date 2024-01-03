@@ -38,7 +38,7 @@ public class GUI {
         // Créer une instance de JLabel avec une ImageIcon
         roomImageLabel = new JLabel();
         centerPanel.add(roomImageLabel);
-
+                
         // Create inventory label
         JLabel inventoryLabel = afficheInventaire();
         centerRightPanel.add(inventoryLabel, BorderLayout.NORTH);
