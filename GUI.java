@@ -171,8 +171,20 @@ public class GUI {
 
     private void updateRoomImage() {
         String roomImage = game.updateRoomImage();
-        ImageIcon imageIcon = new ImageIcon(roomImage);
-        roomImageLabel.setIcon(imageIcon);
+        ImageIcon originalIcon = new ImageIcon(roomImage);
+        // Définir la taille maximale souhaitée pour l'image (ajustez selon vos besoins)
+        int maxWidth = 400;
+        int maxHeight = 400;
+
+        // Redimensionner l'image si elle dépasse la taille maximale
+        Image scaledImage = originalIcon.getImage().getScaledInstance(
+            maxWidth, maxHeight, Image.SCALE_SMOOTH);
+    
+        // Créer un nouvel ImageIcon avec l'image redimensionnée
+        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+
+        roomImageLabel.setIcon(scaledIcon);
+        
     }
 
     public JLabel afficheInventaire() {
