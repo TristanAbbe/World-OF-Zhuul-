@@ -159,11 +159,22 @@ public class GUI {
     }
 
     // Method to handle movement based on the button clicked
+    // Method to handle movement based on the button clicked
     private void handleMove(String direction) {
+      Room currentRoom = game.getCurrentRoom();
+      Room nextRoom = currentRoom.getExit(direction);
+
+    if (nextRoom == null) {
+        JOptionPane.showMessageDialog(null, "Il n'y a pas de chambre dans cette direction !");
+    } else {
         game.movePlayer(direction);
+        alice.decreaseHunger(5);  // Décrémenter la faim uniquement si la direction mène à une sortie
         updateHungerProgressBar();
+        updateRoomInfo();
         updateRoomImage();
     }
+    }
+
 
     private void updateHungerProgressBar() {
         int hunger = alice.getHunger();
@@ -173,20 +184,49 @@ public class GUI {
 
     private void updateRoomImage() {
     Room currentRoom = game.getCurrentRoom();
+    System.out.println("Current Room: " + currentRoom.getName());
 
-    // Mettre à jour le texte avec le nom, la description et les sorties de la chambre actuelle
+    // Reste du code...
+
+    // Mettre à jour l'image de la chambre
+    String roomImage = game.updateRoomImage();
+    System.out.println("Room Image: " + roomImage);
+
+    try {
+        // Essayer de créer l'ImageIcon et imprimer des informations de débogage
+        ImageIcon originalIcon = new ImageIcon(roomImage);
+        System.out.println("Original Icon created successfully.");
+
+        int maxWidth = 400;
+        int maxHeight = 400;
+
+        Image scaledImage = originalIcon.getImage().getScaledInstance(
+                maxWidth, maxHeight, Image.SCALE_SMOOTH);
+
+        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+        roomImageLabel.setIcon(scaledIcon);
+
+        updateHungerProgressBar();
+    } catch (Exception e) {
+        // Attraper toute exception et imprimer des informations de débogage
+        e.printStackTrace();
+        System.out.println("Exception occurred during ImageIcon creation.");
+    }
+}
+
+// Method to update room information (name, description, exits)
+private void updateRoomInfo() {
+    Room currentRoom = game.getCurrentRoom();
     String roomInfo = String.format("You are in: %s\n\nDescription: %s\n\n%s",
             currentRoom.getName(),
             currentRoom.getDescription(),
             currentRoom.getExitString());
 
-    // Mettre à jour le panneau texte avec JScrollPane
     JTextArea descriptionArea = new JTextArea(roomInfo);
     descriptionArea.setEditable(false);
-    descriptionArea.setLineWrap(true);            // Activer le saut de ligne automatique
+    descriptionArea.setLineWrap(true);
     descriptionArea.setWrapStyleWord(true);
 
-    // Créer un JScrollPane pour envelopper la JTextArea
     JScrollPane scrollPane = new JScrollPane(descriptionArea);
 
     // Vérifier si centerLeftPanel est initialisé
@@ -194,26 +234,10 @@ public class GUI {
         centerLeftPanel = new JPanel(new GridLayout(2, 1));
     }
 
-    // Effacer le contenu actuel du panneau gauche
     centerLeftPanel.removeAll();
-    // Ajouter le JScrollPane au panneau gauche
     centerLeftPanel.add(scrollPane);
-    // Régénérer et redessiner le panneau
     centerLeftPanel.revalidate();
     centerLeftPanel.repaint();
-
-    // Mettre à jour l'image de la chambre
-    String roomImage = currentRoom.getLienImage();
-    ImageIcon originalIcon = new ImageIcon(roomImage);
-
-    int maxWidth = 400;
-    int maxHeight = 400;
-
-    Image scaledImage = originalIcon.getImage().getScaledInstance(
-            maxWidth, maxHeight, Image.SCALE_SMOOTH);
-
-    ImageIcon scaledIcon = new ImageIcon(scaledImage);
-    roomImageLabel.setIcon(scaledIcon);
 }
 
 

@@ -16,6 +16,8 @@ public class AliceInWonderlandGame
     private static ArrayList<Character> character;
     private boolean death=false ;
     private HashMap<String, Room> roomsMap;
+    private Alice alice;
+    private GUI gui;
     /**
      * Constructeur d'objets de classe Game
      */

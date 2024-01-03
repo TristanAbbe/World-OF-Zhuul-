@@ -11,7 +11,7 @@ public class Alice extends Character
 {
     // variables d'instance - remplacez l'exemple qui suit par le vôtre/**
     List<Item> inventory = new ArrayList<>(); 
-    private int hunger;
+    private int hunger = 100;
     private Room room;
     private boolean death = false ;
     private Room currentRoom ;
@@ -23,9 +23,12 @@ public class Alice extends Character
         //currentRoom = new Humid_hut();
     }
     
+    
+    
     public void setCurrentRoom(Room room)
     {
         currentRoom = room;
+        decreaseHunger(5);
     }
     
     public Room getCurrentRoom()
@@ -117,4 +120,6 @@ public class Alice extends Character
         }
         }
     }
+    
+    
     }
