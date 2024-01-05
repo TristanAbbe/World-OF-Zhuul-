@@ -13,7 +13,7 @@ public class GUI {
     private JLabel roomImageLabel;
     private JPanel centerLeftPanel; // Déclarer centerLeftPanel comme un champ de classe
 
-    public GUI() {
+        public GUI() {
         this.alice = new Alice();
         this.game = new AliceInWonderlandGame();
         roomImageLabel = new JLabel();
@@ -80,7 +80,22 @@ public class GUI {
         southWestPanel.add(moveRightButton);
         southWestPanel.add(emptyButton5);
         southPanel.add(southWestPanel);
-
+        
+        //add menu button
+        JButton menuButton = new JButton("Menu");
+        southPanel.add(menuButton);
+        menuButton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                showMenu();
+            }
+        });
+       
+        
+        
+        
+        
+        
         // Add ActionListener to the movement buttons
         moveLeftButton.addActionListener(new ActionListener() {
             @Override
@@ -141,7 +156,7 @@ public class GUI {
         frame.setVisible(true);
     }
 
-    public void parler() {
+public void parler() {
         // Check if the current room has a character
         if (currentRoomG != null && currentRoomG.getCharacter() != null) {
             // Display the character's dialogue
@@ -279,5 +294,36 @@ private void updateRoomInfo() {
 
     public void action() {
 
+    }
+    private void showMenu(){
+        // creation of a window about menu
+        JFrame menuFrame = new JFrame("Menu");
+        menuFrame.setSize(200,150);
+        menuFrame.setLocationRelativeTo(null);
+        //Add buttons for option of menu
+        JButton quitButton = new JButton("Quitter le jeu");
+        JButton continueButton = new JButton("Continuer");
+        
+        quitButton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                //Pour gérer l'action "quitter le jeu"
+                System.exit(0);
+            }
+        });
+        continueButton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                //Pour gérer l'action "continuer"
+                menuFrame.dispose();
+            }
+        });
+        //Add button at menuFrame
+        JPanel menuPanel = new JPanel(new GridLayout(2,1));
+        menuPanel.add(quitButton);
+        menuPanel.add(continueButton);
+        menuFrame.add(menuPanel);
+        //Display menuFrame
+        menuFrame.setVisible(true);
     }
 }
