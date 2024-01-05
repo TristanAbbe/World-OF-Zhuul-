@@ -1,42 +1,34 @@
-
 /**
- * When Alice meets the Queen, the 2 characters play a game of dice.
- * The player decides the rules: the highest score wins or the 
- * lowest score wins. If the player decides to let the Queen win, 
- * the guards spread around the room point out the direction in 
- * which the rabbit is in order to help Alice, otherwise the guards
- * will cut off its head.
+ * Represents the character Queen of Hearts in the game.
+ * The QueenOfHearts class is a subclass of the Character class and inherits its properties and methods.
+ * It introduces a customized constructor to set the name and description of the Queen of Hearts character.
  *
- * @author (Groupe 01)
- * @version (05/01/2024)
+ * @author (your name)
+ * @version (a version number or a date)
  */
-public class QueenOfHearts extends Character
-{
-    // variables d'instance - remplacez l'exemple qui suit par le vôtre
-    private int x;
-    
+public class QueenOfHearts extends Character {
+
+    // Instance variable for the Queen of Hearts
+    private LilDrink lilDrink;
+
     /**
-     * Constructeur d'objets de classe QueenOfHearts
+     * Constructs the Queen of Hearts character.
+     * Initializes Queen of Hearts with the name "Queen of Hearts" and a default description.
+     * Also, adds a LilDrink item to the character's inventory.
      */
-    public QueenOfHearts()
-    {
-        // initialisation des variables d'instance
-        super("Queen of Hearts","Respect me I am the Queen of Hearts");
+    public QueenOfHearts() {
+        super("Queen of Hearts", "Respect me, I am the Queen of Hearts");
+        lilDrink = new LilDrink();
+        addItem(lilDrink);
     }
 
-    @Override
-    public void receiveItem(Item item)
-    {
-        
-    }
-    
     /**
-     * @return     le message
+     * Overrides the dialogue method to provide a specific dialogue for the Queen of Hearts.
+     * @return The dialogue message specific to the Queen of Hearts.
      */
     @Override
-      public String dialogue()
-    {
-        String message = "oui";
+    public String dialogue() {
+        String message = "oui"; // Modify the dialogue as needed
         return message;
     }
 }

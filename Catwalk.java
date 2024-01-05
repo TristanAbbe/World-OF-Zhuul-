@@ -1,30 +1,31 @@
 import java.util.*;
 
 /**
- * Décrivez votre classe Catwalk ici.
+ * The Catwalk class represents a specific type of room, namely a Catwalk, which is a subclass of the Room class.
+ * It inherits properties such as description, name, and icon path from the Room class and may have additional
+ * instance variables or behaviors specific to a Catwalk.
  *
- * @author (votre nom)
- * @version (un numéro de version ou une date)
+ * The authors of this class are: ABBE Tristan, ANET Janelle, DELPIROU Corentin,
+ * MAZURIE Jules, PERSONNE Germain, RIVIERE Jade.
+ * 
+ * @author ABBE Tristan, ANET Janelle, DELPIROU Corentin, MAZURIE Jules, PERSONNE Germain, RIVIERE Jade
+ * @version 1.0 (Date: YYYY-MM-DD)
  */
-public class Catwalk extends Room
-{
-    /**
-     * Constructeur d'objets de classe Catwalk
-     */
-    private CheshireCat Chat;
-    private List<Character> charactersList = new ArrayList<>();
-    public Catwalk()
-    {
-       super ("A place with cat hair everywhere. A cat basket in the corner of the room with a bowl in the shape of a cat's head next"
-        +" to it. There must surely be a cat here. There is also a litter on a mushroom, hence the room's smell...", "Catwalk", "ImagesAlice/Catwalk.png");
-        //setExit("South",new No_rest_forest());
-        //setExit("West", new Sage_passage());
-        //setExit("East", new Despair_alley());
-        //setExit("North", new Humid_hut());
-    }
+public class Catwalk extends Room {
+    private Character chat;
     
-    public void ajouterPersonnage(){
-        Chat = new CheshireCat();
-        charactersList.add(Chat);
+    /**
+     * Constructor for objects of the Catwalk class.
+     * Initializes the Catwalk with a specific description, name, and icon path.
+     * It also adds a CheshireCat character to the room.
+     */
+    public Catwalk() {
+        super("A place with cat hair everywhere. A cat basket in the corner of the room with a bowl in the shape of a cat's head next"
+                + " to it. There must surely be a cat here. There is also a litter on a mushroom, hence the room's smell...",
+                "Catwalk", "ImagesAlice/Catwalk.png");
+
+        Character chat = new CheshireCat();
+        chat.setState(1); 
+        ajouterPersonnage(chat);
     }
 }

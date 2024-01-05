@@ -1,39 +1,22 @@
-
 /**
- * When Alice meets him, in exchange for a specific object (silk thread),the MadHatter gives 
- * her a guard's helmet so that she can escape the Queen of Hearts'guards.
+ * Represents the character Mad Hatter in the game.
+ * The MadHatter class is a subclass of the Character class and inherits its properties and methods.
+ * It introduces additional features such as the Mad Hatter's unique item (Helmet).
  *
- * @author (groupe 01)
- * @version (05/01/2024)
+ * @author (your name)
+ * @version (a version number or a date)
  */
-public class MadHatter extends Character
-{
+public class MadHatter extends Character {
+    private Helmet helmet;
+
     /**
-     * Constructeur d'objets de classe MadHatter
+     * Constructs the Mad Hatter character.
+     * Initializes Mad Hatter with the name "MadHatter" and a default description.
+     * Adds a Helmet item to the Mad Hatter's list of items.
      */
-    public MadHatter()
-    {
-        // initialisation des variables d'instance
-        super("MadHatter","Hello my dear you are in front of the Mad Hatter!");
+    public MadHatter() {
+        super("MadHatter", "Hello my dear, you are in front of the Mad Hatter!");
+        helmet = new Helmet();
+        addItem(helmet);
     }
-    
-    @Override
-    public void receiveItem(Item item)
-    {
-        if (item.getName() == "Silk Thread")
-        {
-            setItemQuest(true);
-    }
-    }
-    
-    @Override
-    public void giveItem(Character receiver, Item item) {
-        if (getItemQuest()==true) {
-            Item givenItem = item;
-            givenItem.setName("Helmet");
-            receiver.setName("Alice");
-            receiver.receiveItem(givenItem);
-        }
-    }
-    
 }

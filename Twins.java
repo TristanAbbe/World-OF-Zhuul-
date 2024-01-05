@@ -1,45 +1,34 @@
-
 /**
- * The twins are in the "Thumbs war" room. Alice has to win a thumb 
- * fight to get a taco. If Alice loses, a message appears telling 
- * her that she has lost.
+ * Represents the character Twins TweedleDee and TweedleDum in the game.
+ * The Twins class is a subclass of the Character class and inherits its properties and methods.
+ * It introduces additional features such as a mini-game and a specific item (Taco).
  *
- * @author (Groupe 01)
- * @version (02/01/2024)
+ * @author (your name)
+ * @version (a version number or a date)
  */
-public class Twins extends Character
-{
-    // variables d'instance - remplacez l'exemple qui suit par le vôtre
-    MiniGame miniGame;
-    Item item;
-    Alice alice;
-    Taco tacos;
+public class Twins extends Character {
+    private MiniGame miniGame;
+    private Taco taco;
+
     /**
-    * Constructeur d'objets de classe Twins
-    */
-    public Twins()
-    {
-        // initialisation des variables d'instance
-        super("Twins TweedleDee and TweedleDum", "Hi ! We are the twins TweedleDee and TweedleDum"); ;
+     * Constructs the Twins character.
+     * Initializes the twins with the name "Twins TweedleDee and TweedleDum"
+     * and a default description.
+     * It also adds a Taco item to the character's list of items.
+     */
+    public Twins() {
+        super("Twins TweedleDee and TweedleDum", "Hi! We are the twins TweedleDee and TweedleDum");
+        taco = new Taco();
+        addItem(taco);
     }
-    
-    public void gameTwins(){
-        miniGame.thumbWar(); 
-        if (miniGame.aliceWonTwins){
-            giveItem();
-        }
-    }
-    
-    public void giveItem() {
-            Item givenItem = item;
-            givenItem.setName("Taco");
-            alice.receiveItem(tacos);
-        }
-    
+
+    /**
+     * Overrides the dialogue method from the parent class to provide a specific dialogue for the Twins.
+     *
+     * @return A specific dialogue message for the Twins.
+     */
     @Override
-      public String dialogue()
-    {
-        String message = "oui";
-        return message;
+    public String dialogue() {
+        return "oui";
     }
 }

@@ -1,33 +1,26 @@
-
 /**
- * Décrivez votre classe LilDrink ici.
+ * The LilDrink class represents a specific type of item, namely a LilDrink, which is a subclass of the Item class.
+ * It inherits properties such as name, description, and icon path from the Item class and may have additional
+ * instance variables or behaviors specific to a LilDrink.
  *
- * @author (votre nom)
- * @version (un numéro de version ou une date)
+ * The authors of this class are: ABBE Tristan, ANET Janelle, DELPIROU Corentin,
+ * MAZURIE Jules, PERSONNE Germain, RIVIERE Jade.
+ * 
+ * @author ABBE Tristan, ANET Janelle, DELPIROU Corentin, MAZURIE Jules, PERSONNE Germain, RIVIERE Jade
+ * @version 1.0 (Date: YYYY-MM-DD)
  */
 public class LilDrink extends Item
 {
-    // variables d'instance - remplacez l'exemple qui suit par le vôtre
-    private int x;
-
     /**
-     * Constructeur d'objets de classe LilDrink
+     * Constructor for objects of the LilDrink class.
+     * Initializes the LilDrink with a specific name, description, and icon path.
      */
     public LilDrink()
     {
-        // initialisation des variables d'instance
-        super("Little Drink", "Small, attractive vial containing a bluish liquid with a label reading 'inverso quis fermentum'");
+        // Initialization of instance variables
+        super("Little Drink",
+              "Small, attractive vial containing a bluish liquid with a label reading 'inverso quis fermentum'",
+              "ImagesAlice/Ptite_boisson.png");
     }
 
-    /**
-     * Un exemple de méthode - remplacez ce commentaire par le vôtre
-     *
-     * @param  y   le paramètre de la méthode
-     * @return     la somme de x et de y
-     */
-    public int sampleMethod(int y)
-    {
-        // Insérez votre code ici
-        return x + y;
-    }
 }

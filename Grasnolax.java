@@ -1,34 +1,27 @@
-
 /**
- * Décrivez votre classe Grasnolax ici.
+ * The Grasnolax class represents a specific type of item, namely a Grasnolax, which is a subclass of the Item class.
+ * It inherits properties such as name, description, and icon path from the Item class and may have additional
+ * instance variables or behaviors specific to a Grasnolax.
  *
- * @author (votre nom)
- * @version (un numéro de version ou une date)
+ * The authors of this class are: ABBE Tristan, ANET Janelle, DELPIROU Corentin,
+ * MAZURIE Jules, PERSONNE Germain, RIVIERE Jade.
+ * 
+ * @author ABBE Tristan, ANET Janelle, DELPIROU Corentin, MAZURIE Jules, PERSONNE Germain, RIVIERE Jade
+ * @version 1.0 (Date: YYYY-MM-DD)
  */
 public class Grasnolax extends Item
 {
-    // variables d'instance - remplacez l'exemple qui suit par le vôtre
-    private int x;
 
     /**
-     * Constructeur d'objets de classe Grasnolax
+     * Constructor for objects of the Grasnolax class.
+     * Initializes the Grasnolax with a specific name, description, and icon path.
      */
     public Grasnolax()
     {
-        // initialisation des variables d'instance
-        super("Grasnolax","A large cookie made from a delicious mixture of oilseeds (almonds, hazelnuts, walnuts, cashew nuts) and possibly oats and honey, which give it its fattening powers. However, it is very high in calories: no more than one at a time.");
-    }
-
-    /**
-     * Un exemple de méthode - remplacez ce commentaire par le vôtre
-     *
-     * @param  y   le paramètre de la méthode
-     * @return     la somme de x et de y
-     */
-    public int sampleMethod(int y)
-    {
-        // Insérez votre code ici
-        return x + y;
+        // Initialization of instance variables
+        super("Grasnolax",
+              "A large cookie made from a delicious mixture of oilseeds (almonds, hazelnuts, walnuts, cashew nuts) and possibly oats and honey, which give it its fattening powers. However, it is very high in calories: no more than one at a time.",
+              "ImagesAlice/Granolax.png");
     }
     
 }

@@ -1,33 +1,25 @@
-
 /**
- * Décrivez votre classe Helmet ici.
+ * The Helmet class represents a specific type of item, namely a Helmet, which is a subclass of the Item class.
+ * It inherits properties such as name, description, and icon path from the Item class and may have additional
+ * instance variables or behaviors specific to a Helmet.
  *
- * @author (votre nom)
- * @version (un numéro de version ou une date)
+ * The authors of this class are: ABBE Tristan, ANET Janelle, DELPIROU Corentin,
+ * MAZURIE Jules, PERSONNE Germain, RIVIERE Jade.
+ * 
+ * @author ABBE Tristan, ANET Janelle, DELPIROU Corentin, MAZURIE Jules, PERSONNE Germain, RIVIERE Jade
+ * @version 1.0 (Date: YYYY-MM-DD)
  */
 public class Helmet extends Item
 {
-    // variables d'instance - remplacez l'exemple qui suit par le vôtre
-    private int x;
-
     /**
-     * Constructeur d'objets de classe Helmet
+     * Constructor for objects of the Helmet class.
+     * Initializes the Helmet with a specific name, description, and icon path.
      */
     public Helmet()
     {
-        // initialisation des variables d'instance
-        super("Helmet","This magnificent headgear adorned with a menacing spike could well come in handy.  They seem to be the same ones used by the body cards.");
-    }
-
-    /**
-     * Un exemple de méthode - remplacez ce commentaire par le vôtre
-     *
-     * @param  y   le paramètre de la méthode
-     * @return     la somme de x et de y
-     */
-    public int sampleMethod(int y)
-    {
-        // Insérez votre code ici
-        return x + y;
+        // Initialization of instance variables
+        super("Helmet",
+              "This magnificent headgear adorned with a menacing spike could well come in handy. They seem to be the same ones used by the body cards.",
+              "ImagesAlice/casque.png");
     }
 }

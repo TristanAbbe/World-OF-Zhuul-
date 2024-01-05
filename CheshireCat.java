@@ -1,31 +1,28 @@
 import javax.swing.JOptionPane;
+
 /**
- * When Alice finds the cat, it explains the rules of the game and 
- * some rooms.It also introduces characters. It can give clues as 
- * to how the game is progressing
+ * Represents the character Cheshire Cat in the game.
+ * The CheshireCat class is a subclass of the Character class and inherits its properties and methods.
+ * It introduces additional features such as customized dialogues based on the character's state.
  *
- * @author (groupe 01)
- * @version (05/01/2024)
+ * @author (your name)
+ * @version (a version number or a date)
  */
-public class CheshireCat extends Character
-{
-    // variables d'instance - remplacez l'exemple qui suit par le vôtre
+public class CheshireCat extends Character {
+
     /**
-     * Constructeur d'objets de classe CheshireCat
+     * Constructs the Cheshire Cat character.
+     * Initializes Cheshire Cat with the name "Cheshire Cat" and a default welcoming description.
      */
-    public CheshireCat()
-    {
-        // initialisation des variables d'instance
-        super("Cheshire Cat", "I am the Cheshire Cat : welcome in the game");
+    public CheshireCat() {
+        super("Cheshire Cat", "I am the Cheshire Cat: welcome to the game!");
     }
 
-    @Override
-    public void receiveItem(Item item)
-    {
-        
-    }
-    
-    // Override the dialogue method for the CheshireCat
+    /**
+     * Overrides the dialogue method to provide custom dialogues based on the Cheshire Cat's state.
+     *
+     * @return A String representing the Cheshire Cat's dialogue.
+     */
     @Override
     public String dialogue() {
         String message;
@@ -57,5 +54,4 @@ public class CheshireCat extends Character
 
         return message;
     }
-    
 }

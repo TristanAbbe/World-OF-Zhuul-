@@ -1,64 +1,58 @@
 import java.util.HashMap;
-import java.util.Set;
-import java.util.Map;
-import javax.swing.ImageIcon;
+import java.util.*;
+
 /**
- * Class Room - a room in an adventure game.
- * This class is part of a text-based adventure game.
+ * The Room class represents a location or room within a text-based adventure game.
+ * It holds information such as the room's name, description, exits to other rooms,
+ * status, associated items, characters, and an optional image path.
+ * This class is part of a larger game environment and is intended to be extended
+ * for specific room types in the game.
  *
- * A "Room" represents one location in the game. It is connected to
- * other rooms via exits. The exits are labeled by cardinal points
- * such as north, east, south, west.
- * 
- * @author MAZURIE Jules
- * @version 29/11/2023
+ * The authors of this class are: ABBE Tristan, ANET Janelle, DELPIROU Corentin,
+ * MAZURIE Jules, PERSONNE Germain, RIVIERE Jade.
+ *
+ * @author ABBE Tristan, ANET Janelle, DELPIROU Corentin, MAZURIE Jules, PERSONNE Germain, RIVIERE Jade
+ * @version 1.0 (Date: YYYY-MM-DD)
  */
 public class Room {
     private String name;
     private String description;
-    private String lienImage;
     private HashMap<String, Room> exits;
-    private Character character;
-    private int status; // statu 0 (=>pas le dialogue car le joueur n'a pas fais certaines chose), 
-    //1 (=>dialogue se fait) 2(=> Alice a terminer sur cette map). Gére quel dialogue on a déclencher.
+    private int status;
     private Item item;
-    
-    public Room(String description, String name, String lienImage) 
-    {
-        this.description = description;
-        this.name = name;
-        this.lienImage = lienImage;
-        this.exits = new HashMap<>();
-        //this.lienImage = lienImage; ajout du lien de l'image
+    private String lienImage;
+    private List<Character> characterList = new ArrayList<>();
+    private List<Item> itemList = new ArrayList<>();
+    private List<Alice> aliceList = new ArrayList<>();
+
+    /**
+     * Constructor for objects of the Room class.
+     * Initializes a room with a specific description, name, and optional image path.
+     *
+     * @param description The description of the room.
+     * @param name The name of the room.
+     * @param pathImage The path to the image associated with the room.
+     */
+    public Room(String description, String name, String pathImage) {
+        setDescription(description);
+        setName(name);
+        exits = new HashMap<>();
+        setLienImage(pathImage);
     }
 
     /**
-     * Define an exit from this room.
-     * @param direction The exit's direction.
-     * @param neighbor The neighboring room.
+     * Sets the exit for a specified direction to lead to another room.
+     *
+     * @param direction The direction of the exit.
+     * @param neighbor The room to which the exit leads.
      */
     public void setExit(String direction, Room neighbor) {
         exits.put(direction, neighbor);
     }
-    
-    public void setName(String name){
-        if (name != null && !name.trim().isEmpty()) {
-            this.name = name.trim(); // Trim leading and trailing whitespaces
-        } else {
-            throw new IllegalArgumentException("Name cannot be null or empty.");
-        }
-    }
-    
-    public void setDescription(String description){
-        if (description != null && !description.trim().isEmpty()) {
-            this.description = description.trim(); // Trim leading and trailing whitespaces
-        } else {
-            throw new IllegalArgumentException("Description cannot be null or empty.");
-        }
-    }
 
     /**
-     * Get the name of the room.
+     * Gets the name of the room.
+     *
      * @return The name of the room.
      */
     public String getName() {
@@ -66,41 +60,74 @@ public class Room {
     }
 
     /**
-     * Get the description of the room.
+     * Gets the description of the room.
+     *
      * @return The description of the room.
      */
     public String getDescription() {
         return description;
     }
-    
-    // public Room changeRom(String direction){
-        
-    // }
-    
-    public void setCharacter(Character character) {
-        this.character = character;
-    }
 
-    public Character getCharacter() {
-        return character;
-    }
-    
-    public String getLienImage(){
+    /**
+     * Gets the path to the image associated with the room.
+     *
+     * @return The path to the image.
+     */
+    public String getPath() {
         return lienImage;
     }
-    
+
     /**
-     * Get the neighboring room in the given direction.
-     * @param direction The exit's direction.
-     * @return The neighboring room.
+     * Sets the name of the room.
+     *
+     * @param name The new name of the room.
+     * @throws IllegalArgumentException if the name is null or empty.
+     */
+    public void setName(String name) {
+        if (name != null && !name.trim().isEmpty()) {
+            this.name = name.trim();
+        } else {
+            throw new IllegalArgumentException("Name cannot be null or empty.");
+        }
+    }
+
+    /**
+     * Sets the description of the room.
+     *
+     * @param description The new description of the room.
+     * @throws IllegalArgumentException if the description is null or empty.
+     */
+    public void setDescription(String description) {
+        if (description != null && !description.trim().isEmpty()) {
+            this.description = description.trim();
+        } else {
+            throw new IllegalArgumentException("Description cannot be null or empty.");
+        }
+    }
+
+    /**
+     * Gets the exit for a specified direction.
+     *
+     * @param direction The direction of the exit.
+     * @return The room to which the exit leads.
      */
     public Room getExit(String direction) {
         return exits.get(direction);
     }
 
     /**
-     * Get a string representation of the exits.
-     * @return A string representing the exits.
+     * Gets a list of all exits from the room.
+     *
+     * @return A list of all exit directions.
+     */
+    public List<String> getAllExits() {
+        return new ArrayList<>(exits.keySet());
+    }
+
+    /**
+     * Gets a string representation of all exits from the room.
+     *
+     * @return A formatted string of all exit directions.
      */
     public String getExitString() {
         StringBuilder exitString = new StringBuilder("Exits: ");
@@ -108,5 +135,110 @@ public class Room {
             exitString.append(direction).append(" ");
         }
         return exitString.toString().trim();
+    }
+
+    /**
+     * Sets the path to the image associated with the room.
+     *
+     * @param pathImage The new path to the image.
+     * @throws IllegalArgumentException if the path is null or empty.
+     */
+    public void setLienImage(String pathImage) {
+        if (pathImage != null && !pathImage.trim().isEmpty()) {
+            this.lienImage = pathImage.trim();
+        } else {
+            throw new IllegalArgumentException("Path image cannot be null or empty.");
+        }
+    }
+
+    /**
+     * Gets the list of characters present in the room.
+     *
+     * @return A list of characters.
+     */
+    public List<Character> getCharacterList(){
+        return characterList;
+    }
+
+    /**
+     * Gets the first character in the list.
+     *
+     * @return The first character in the list.
+     */
+    public Character getCharacter(){
+        Character characterInList = characterList.get(0);
+        return characterInList;
+    }
+
+    /**
+     * Adds a character to the list of characters in the room.
+     *
+     * @param personnage The character to add.
+     */
+    public void ajouterPersonnage(Character personnage){
+        characterList.add(personnage);
+    }
+
+    /**
+     * Removes a character from the list of characters in the room.
+     *
+     * @param personnage The character to remove.
+     */
+    public void removePersonnage(Character personnage){
+        characterList.remove(personnage);
+    }
+
+    /**
+     * Gets the list of Alice characters present in the room.
+     *
+     * @return A list of Alice characters.
+     */
+    public List<Alice> getAlice(){
+        return aliceList;
+    }
+
+    /**
+     * Adds an Alice character to the list of Alice characters in the room.
+     *
+     * @param personnage The Alice character to add.
+     */
+    public void ajouterAlice(Alice personnage){
+        aliceList.add(personnage);
+    }
+
+    /**
+     * Removes an Alice character from the list of Alice characters in the room.
+     *
+     * @param personnage The Alice character to remove.
+     */
+    public void removeAlice(Alice personnage){
+        aliceList.remove(personnage);
+    }
+
+    /**
+     * Gets the list of items present in the room.
+     *
+     * @return A list of items.
+     */
+    public List<Item> getItemList() {
+        return itemList;
+    }
+
+    /**
+     * Adds an item to the list of items in the room.
+     *
+     * @param item The item to add.
+     */
+    public void addItem(Item item) {
+        itemList.add(item);
+    }
+
+    /**
+     * Removes an item from the list of items in the room.
+     *
+     * @param item The item to remove.
+     */
+    public void removeItem(Item item) {
+        itemList.remove(item);
     }
 }

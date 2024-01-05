@@ -1,48 +1,34 @@
 import javax.swing.JOptionPane;
+
 /**
- * Décrivez votre classe Absolem ici.
+ * Represents the character Absolem (Caterpillar) in the game.
+ * The Absolem class is a subclass of the Character class and inherits its properties and methods.
+ * It introduces additional features such as the ability to ask Alice for a Doubiprane and an item (SilkThread).
  *
- * @author (votre nom)
- * @version (un numéro de version ou une date)
+ * @author (your name)
+ * @version (a version number or a date)
  */
-public class Absolem extends Character
-{
-    // variables d'instance - remplacez l'exemple qui suit par le vôtre
+public class Absolem extends Character {
     private boolean headache;
-    /**
-     * Constructeur d'objets de classe Absolem
-     */
-    public Absolem()
-    {
-        // initialisation des variables d'instance
-        super("Absolem","Hi, I'm Absolem");
-        headache=true;
-    }
+    private SilkThread silkthread;
 
-    @Override
-    public void receiveItem(Item item)
-    {
-    if (item.getName() == "Doubiprane")
-        {
-            setItemQuest(true);
-            headache = false;
-    }
-    }
-    
-    @Override
-    public void giveItem(Character receiver, Item item) {
-        if (getItemQuest()==true) {
-            Item givenItem = item;
-            givenItem.setName("Silk Thread");
-            receiver.setName("Alice");
-            receiver.receiveItem(givenItem);
-        }
+    /**
+     * Constructs the Absolem character.
+     * Initializes Absolem with the name "Absolem" and a default description.
+     * Sets the initial state of having a headache and adds a SilkThread item to the character's list of items.
+     */
+    public Absolem() {
+        super("Absolem", "Hi, I'm Absolem");
+        headache = true;
+        silkthread = new SilkThread();
+        addItem(silkthread);
     }
 
     /**
-     * This method allows Absolem to ask Alice for a Doubiprane
+     * Overrides the dialogue method from the parent class to provide specific dialogues for Absolem.
+     *
+     * @return A specific dialogue message based on Absolem's state.
      */
-    // Override the dialogue method for the Caterpillar
     @Override
     public String dialogue() {
         String message;
@@ -66,4 +52,10 @@ public class Absolem extends Character
         return message;
     }
 
+    /**
+     * This method allows Absolem to ask Alice for a Doubiprane.
+     */
+    public void askForDoubiprane() {
+        JOptionPane.showMessageDialog(null, "Absolem asks Alice for a Doubiprane.");
+    }
 }

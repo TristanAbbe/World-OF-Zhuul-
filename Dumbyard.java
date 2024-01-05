@@ -1,18 +1,23 @@
-
 /**
- * Décrivez votre classe Dumbyard ici.
+ * The Dumbyard class represents a specific type of room, namely a Dumbyard, which is a subclass of the Room class.
+ * It inherits properties such as description, name, and icon path from the Room class and may have additional
+ * instance variables or behaviors specific to a Dumbyard.
  *
- * @author (votre nom)
- * @version (un numéro de version ou une date)
+ * The authors of this class are: ABBE Tristan, ANET Janelle, DELPIROU Corentin,
+ * MAZURIE Jules, PERSONNE Germain, RIVIERE Jade.
+ * 
+ * @author ABBE Tristan, ANET Janelle, DELPIROU Corentin, MAZURIE Jules, PERSONNE Germain, RIVIERE Jade
+ * @version 1.0 (Date: YYYY-MM-DD)
  */
 public class Dumbyard extends Room
 {
     /**
-     * Constructeur d'objets de classe Dumbyard
+     * Constructor for objects of the Dumbyard class.
+     * Initializes the Dumbyard with a specific description, name, and icon path.
      */
     public Dumbyard()
     {
-        super("This place is quite primitive, a civilized person wouldn't stay there long...","Dumbyard", "ImagesAlice/dumbyard.jfif");
-        //setExit("East", new Weeping_swamp());
+        // Initialization of instance variables
+        super("This place is quite primitive, a civilized person wouldn't stay there long...","Dumbyard","ImagesAlice/dumbyard.jfif");
     }
 }

@@ -1,33 +1,25 @@
-
 /**
- * Décrivez votre classe Doubiprane ici.
+ * The Doubiprane class represents a specific type of item, namely a Doubiprane, which is a subclass of the Item class.
+ * It inherits properties such as name, description, and icon path from the Item class and may have additional
+ * instance variables or behaviors specific to a Doubiprane.
  *
- * @author (votre nom)
- * @version (un numéro de version ou une date)
+ * The authors of this class are: ABBE Tristan, ANET Janelle, DELPIROU Corentin,
+ * MAZURIE Jules, PERSONNE Germain, RIVIERE Jade.
+ * 
+ * @author ABBE Tristan, ANET Janelle, DELPIROU Corentin, MAZURIE Jules, PERSONNE Germain, RIVIERE Jade
+ * @version 1.0 (Date: YYYY-MM-DD)
  */
 public class Doubiprane extends Item
 {
-    // variables d'instance - remplacez l'exemple qui suit par le vôtre
-    private int x;
-
     /**
-     * Constructeur d'objets de classe Doubiprane
+     * Constructor for objects of the Doubiprane class.
+     * Initializes the Doubiprane with a specific name, description, and icon path.
      */
     public Doubiprane()
     {
-        // initialisation des variables d'instance
-        super("Doubiprane","a small box sold by apothecaries. This product works miracles in cases of malaise and fever. It is written 'not to be taken under penalty of seeing these dreams come true, see prescription with your doctor'.");
-    }
-
-    /**
-     * Un exemple de méthode - remplacez ce commentaire par le vôtre
-     *
-     * @param  y   le paramètre de la méthode
-     * @return     la somme de x et de y
-     */
-    public int sampleMethod(int y)
-    {
-        // Insérez votre code ici
-        return x + y;
+        // Initialization of instance variables
+        super("Doubiprane",
+              "A small box sold by apothecaries. This product works miracles in cases of malaise and fever. It is written 'not to be taken under penalty of seeing these dreams come true, see prescription with your doctor'.",
+              "ImagesAlice/Doubiprane.png");
     }
 }
