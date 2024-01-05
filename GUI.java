@@ -176,7 +176,7 @@ public class GUI {
         updateRoomInfo();
         updateRoomImage();
     }
-    }
+}
 
 
     private void updateHungerProgressBar() {
