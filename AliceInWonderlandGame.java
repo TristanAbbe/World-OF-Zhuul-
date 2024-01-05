@@ -129,6 +129,10 @@ public class AliceInWonderlandGame
         currentRoom = newRoom;
     }
     
+     public boolean getDeath(){
+         return death;
+     }
+     
      // Méthode pour déplacer le joueur vers une nouvelle chambre
     public void movePlayer(String direction) {
         if (!death) {

@@ -169,6 +169,9 @@ public class GUI {
     } else {
         game.movePlayer(direction);
         alice.decreaseHunger(5);  // Décrémenter la faim uniquement si la direction mène à une sortie
+        if (game.getDeath()){
+            //faire quitter le jeu 
+        }
         updateHungerProgressBar();
         updateRoomInfo();
         updateRoomImage();
