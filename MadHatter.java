@@ -1,9 +1,10 @@
 
 /**
- * Décrivez votre classe MadHatter ici.
+ * When Alice meets him, in exchange for a specific object (silk thread),the MadHatter gives 
+ * her a guard's helmet so that she can escape the Queen of Hearts'guards.
  *
- * @author (votre nom)
- * @version (un numéro de version ou une date)
+ * @author (groupe 01)
+ * @version (05/01/2024)
  */
 public class MadHatter extends Character
 {

@@ -1,9 +1,12 @@
 
 /**
- * Décrivez votre classe MarchHare ici.
+ * is on the run from Alice. When she finds it and finds the exit, 
+ * the game is over and the player wins. The hare is in its burrow 
+ * in a specific room, and the other characters can indicate its 
+ * location.
  *
- * @author (votre nom)
- * @version (un numéro de version ou une date)
+ * @author (Groupe 01)
+ * @version (05/01/2024)
  */
 public class MarchHare extends Character
 {

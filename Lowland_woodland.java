@@ -19,16 +19,4 @@ public class Lowland_woodland extends Room
         super("Plains as far as the eye can see. I don't want to get lost...","Lowland Woodland", "ImagesAlice/LowlandWoodland.png");
         //setExit("East", new Menace_palace());
     }
-
-    /**
-     * Un exemple de méthode - remplacez ce commentaire par le vôtre
-     *
-     * @param  y   le paramètre de la méthode
-     * @return     la somme de x et de y
-     */
-    public int sampleMethod(int y)
-    {
-        // Insérez votre code ici
-        return x + y;
-    }
 }

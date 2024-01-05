@@ -1,9 +1,11 @@
 
 /**
- * Décrivez votre classe Twins ici.
+ * The twins are in the "Thumbs war" room. Alice has to win a thumb 
+ * fight to get a taco. If Alice loses, a message appears telling 
+ * her that she has lost.
  *
- * @author (votre nom)
- * @version (un numéro de version ou une date)
+ * @author (Groupe 01)
+ * @version (02/01/2024)
  */
 public class Twins extends Character
 {
@@ -13,8 +15,8 @@ public class Twins extends Character
     Alice alice;
     Taco tacos;
     /**
-     * Constructeur d'objets de classe Twins
-     */
+    * Constructeur d'objets de classe Twins
+    */
     public Twins()
     {
         // initialisation des variables d'instance
@@ -33,7 +35,6 @@ public class Twins extends Character
             givenItem.setName("Taco");
             alice.receiveItem(tacos);
         }
-    
     
     @Override
       public String dialogue()

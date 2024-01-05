@@ -2,10 +2,12 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 /**
- * Décrivez votre classe Alice ici.
+ * Alice can move around the maze, meet characters and interact with them. 
+ * She can find and collect items in the maze and store them in 
+ * her inventory for later use in specific situations.
  *
- * @author (votre nom)
- * @version (un numéro de version ou une date)
+ * @author (Groupe 01)
+ * @version (05/01/2024)
  */
 public class Alice extends Character
 {
@@ -23,8 +25,6 @@ public class Alice extends Character
         //currentRoom = new Humid_hut();
     }
     
-    
-    
     public void setCurrentRoom(Room room)
     {
         currentRoom = room;
@@ -33,7 +33,7 @@ public class Alice extends Character
     
     public Room getCurrentRoom()
     {
-        return currentRoom;
+     return currentRoom;
     }
     
         public void addItem(Item item)

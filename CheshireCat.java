@@ -1,9 +1,11 @@
 import javax.swing.JOptionPane;
 /**
- * Décrivez votre classe CheshireCat ici.
+ * When Alice finds the cat, it explains the rules of the game and 
+ * some rooms.It also introduces characters. It can give clues as 
+ * to how the game is progressing
  *
- * @author (votre nom)
- * @version (un numéro de version ou une date)
+ * @author (groupe 01)
+ * @version (05/01/2024)
  */
 public class CheshireCat extends Character
 {

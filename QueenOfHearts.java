@@ -1,16 +1,20 @@
 
 /**
- * Décrivez votre classe QueenOfHearts ici.
+ * When Alice meets the Queen, the 2 characters play a game of dice.
+ * The player decides the rules: the highest score wins or the 
+ * lowest score wins. If the player decides to let the Queen win, 
+ * the guards spread around the room point out the direction in 
+ * which the rabbit is in order to help Alice, otherwise the guards
+ * will cut off its head.
  *
- * @author (votre nom)
- * @version (un numéro de version ou une date)
+ * @author (Groupe 01)
+ * @version (05/01/2024)
  */
 public class QueenOfHearts extends Character
 {
     // variables d'instance - remplacez l'exemple qui suit par le vôtre
     private int x;
     
-
     /**
      * Constructeur d'objets de classe QueenOfHearts
      */
@@ -26,12 +30,8 @@ public class QueenOfHearts extends Character
         
     }
     
-    
     /**
-     * Un exemple de méthode - remplacez ce commentaire par le vôtre
-     *
-     * @param  y   le paramètre de la méthode
-     * @return     la somme de x et de y
+     * @return     le message
      */
     @Override
       public String dialogue()
