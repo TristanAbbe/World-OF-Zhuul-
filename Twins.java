@@ -33,27 +33,36 @@ public class Twins extends Character {
 
         // Different dialogues based on the state
         switch (getState()) {
-            case 1:
+            case 0:
                 message = "* Two very similar people stands motionless *\n"+
                 "- What peculiar little figures!\n"+
                 "- If you think we're waxworks, you ought to pay you know.\n"+
-                "- Contrariwise, if you think we're alive, you ought to speak to us."+
-                "- Oh sorry, I am called Alice and I am trying to find my way out of here. It's almost tea time and I am beginning to be hungry."+
-                "- For that we have the solution ! Always in possession of a snack on us. Will you play for it ? Would you like to play 'hide-and-seek' ?"+
-                " Or 'button, button, who's got the button' ? Or a classical thumbs war ?\n";
+                "- Contrariwise, if you think we're alive, you ought to speak to us.\n"+
+                "- Oh sorry, I am called Alice and I am trying to find my way out of here.\n It's almost tea time and I am beginning to be hungry.\n"+
+                "- For that we have the solution ! Always in possession of a snack on us.\n Will you play for it ? Would you like to play 'hide-and-seek' ?\n"+
+                " Or 'button, button, who's got the button' ?\n Or a classical thumbs war ?\n"+
+                "- Let's go for a thumbs war!"+
+                "- Wonderful ! To play this game, press your spacebar as many times as possible during 5 seconds.\n"+
+                "[Timer starts in 3...]\n"+
+                //TimeUnit.SECONDS.sleep(1);
+                "[2...]\n"+
+                //TimeUnit.SECONDS.sleep(1);
+                "[1...]\n"+
+                //TimeUnit.SECONDS.sleep(1);
+                "[GO !!]\n";
                 break;
-            case 2:
-                message = "\n";
+            case 1:
+                message = "- Oh... It seems you've won... We're glad for you and we must now give what we promised.\n";
                 //Give the doubiprane
                 
                 //+"I am good, I don't have a headache anymore.";
                 break;
-            case 3:
-                message = "- Finally! I feel better now, thank you for your help. I will grant you with the most priceless material around here."+
-                "I hope you will make great use of it.\n";
+            case 2:
+                message = "- Hope you appreciate it, it should give you enough energy to leave the place.\n";
                 break;
             default:
-                message = "* Absolem seems deeply lost in his minds, only smoke comes out of his mouth *\n";
+                message = "*singing* - How do you do and shake hands, shake hands, shake hands.\n"+
+                " How do you do and shake hands, state your name and business.\n";
                 break;
         }
 

@@ -314,9 +314,11 @@ public class GUI {
                 
                 break;
             case 22 :
-                System.out.println("* Alice gives a look around *");
+                appendDialogue("* Alice gives a look around *");
                 parler();
-                MiniGame.countEvent();
+                
+                int score = MiniGame.countEvent(); //////// Ca ne se lance pas
+                appendDialogue("You scored: "+score+"]");
                 break; 
             default:
                 System.out.println("Balise 1");
