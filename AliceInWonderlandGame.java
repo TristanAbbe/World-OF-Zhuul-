@@ -277,7 +277,7 @@ public class AliceInWonderlandGame extends JFrame {
 
             if (canMove) {
                 setCurrentRoom(nextRoom);
-                alice.decreaseHunger(5);
+                alice.decreaseHunger(1);
             } else {
                 System.out.println("Player died. Reason: " + getDeathReason(nextRoom));
                 alice.setDeath(true);

@@ -165,6 +165,7 @@ public class GUI {
         inventoryLabel.setLayout(new FlowLayout());
         for (Item item : game.getAlice().getInventory()) {
             String iconPath = item.getIconPath();
+            System.out.println("itemPath: " + iconPath);
             ImageIcon itemIcon = new ImageIcon(iconPath);
             JLabel itemLabel = new JLabel(itemIcon);
             inventoryLabel.add(itemLabel);
@@ -327,7 +328,9 @@ public class GUI {
         System.out.println("Balise 2");
         updateHungerProgressBar();
         updateRoomInfo();
-        updateRoomImage();        
+        updateInventoryLabel();
+        updateRoomImage();    
+        
     }
     
     /**
@@ -354,6 +357,7 @@ public class GUI {
         updateHungerProgressBar();
         updateRoomInfo();
         updateRoomImage();
+        updateInventoryLabel();
     }
 
     /**
@@ -398,10 +402,6 @@ public class GUI {
                 game.setSpecificRoom("winRoom");
         }
         
-        if (game.getAlice().getHaveHelmet()){
-            
-        }
-        
         
         if (nextRoom == null) {
             JOptionPane.showMessageDialog(null, "Il n'y a pas de chambre dans cette direction !");
@@ -414,6 +414,7 @@ public class GUI {
             updateHungerProgressBar();
             updateRoomInfo();
             updateRoomImage();
+            updateInventoryLabel();
         }
     }
     
@@ -426,7 +427,7 @@ public class GUI {
         JPanel ImagePabel = createCenterRightPanel();
         //JLabel inventoryLabel = createInventoryLabel();
         centerRightPanel.removeAll();
-        centerRightPanel.add(ImagePabel, BorderLayout.CENTER);
+        centerRightPanel.add(ImagePabel);
         frame.revalidate();
         frame.repaint();
     }
