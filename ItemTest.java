@@ -5,14 +5,14 @@ public class ItemTest {
 
     @Test
     public void testItemCreation() {
-        Item myItem = new Item("Example Item", "This is an example item.");
+        Item myItem = new Item("Example Item", "This is an example item.", "");
         assertEquals("Example item", myItem.getName());
         assertEquals("This is an example item.", myItem.getDescription());
     }
 
     @Test
     public void testSetName() {
-        Item myItem = new Item("Initial Name", "Initial Description");
+        Item myItem = new Item("Initial Name", "Initial Description","");
 
         myItem.setName("New Name");
         assertEquals("New Name", myItem.getName());
@@ -36,7 +36,7 @@ public class ItemTest {
 
     @Test
     public void testSetDescription() {
-        Item myItem = new Item("Initial Name", "Initial Description");
+        Item myItem = new Item("Initial Name", "Initial Description", "");
 
         myItem.setDescription("New Description");
         assertEquals("New Description", myItem.getDescription());

@@ -1,5 +1,7 @@
 import java.util.Random;
 import javax.swing.JOptionPane;
+import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 /**
  * Décrivez votre classe MiniGame ici.
  *
@@ -69,9 +71,39 @@ public class MiniGame
         Random rand = new Random();
         int resultat = rand.nextInt(2); // Génère 0 ou 1 (0:pile ou 1:face)
         if (resultat == 0) {
+            System.out.println("Alice wins this round");
             return "Alice";
         } else {
+            System.out.println("The twins win this round");
             return "Twins";
         }
+    }
+    
+    
+    public static void countEvent(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("[Press your spacebar as many times as possible in 10 seconds. Timer starts in 3...\n");
+        try {
+        TimeUnit.SECONDS.sleep(1);
+        System.out.println("2...\n");
+        TimeUnit.SECONDS.sleep(1);
+        System.out.println("1...\n");
+        TimeUnit.SECONDS.sleep(1);
+        System.out.println("GO !!\n");
+        } catch (InterruptedException e) {
+            System.err.println("Error on string delay : " + e.getMessage());
+            Thread.currentThread().interrupt(); // Rétablit le statut d'interruption
+        }
+        long startTime = System.currentTimeMillis();
+        long endTime = startTime + 10000; // 10 secondes
+
+        int countEspace = 0;
+        while (System.currentTimeMillis() < endTime) {
+            if (scanner.nextLine().equals(" ")) {
+                countEspace++;
+            }
+        }
+
+        System.out.println("Nombre d'appuis sur la barre d'espace en 10 secondes : " + countEspace);
     }
 }
