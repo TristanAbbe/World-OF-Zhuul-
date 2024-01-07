@@ -21,7 +21,7 @@ public class TwinsBinDen extends Room {
      */
     public TwinsBinDen() {
         super("This place looks dangerous! Better to keep both eyes open...",
-        "Twins' Bin Den", "ImagesAlice/TwinsBinDen.png",22);
+        "Twins' Bin Den", "ImagesAliceRedimmensionnées/TwinsBinDen.png",22);
 
         twins = new Twins();
         ajouterPersonnage(twins);

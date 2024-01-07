@@ -19,7 +19,7 @@ public class DespairAlley extends Room
     {
        super("There's a sign with the words: 'You who enter here, abandon all hope…'. Charming…",
        "Despair Alley",
-       "ImagesAlice/Despair_alley.png"
+       "ImagesAliceRedimmensionnées/Despair_alley.png"
        ,3);
     }
 }

@@ -24,7 +24,7 @@ public class CaterpillarCraddle extends Room {
                 + " of sand. On both sides of the room, there are fossilized skins resembling molts of butterflies, normally they should not be this big for such"
                 + " a small animal. Very light silk threads starting from the ceiling cross the room with in its center a large red mushroom with white spots on"
                 + " which is placed a strange character of an unempathetic nature.",
-                "Caterpillar Cradle", "ImagesAlice/Caterpillar.png",8);
+                "Caterpillar Cradle", "ImagesAliceRedimmensionnées/Caterpillar.png",8);
         Character chenille = new Absolem();
         ajouterPersonnage(chenille);
     }

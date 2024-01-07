@@ -20,6 +20,6 @@ public class BodyCardGarden extends Room
         // Initialization of instance variables
         super("A large door adorned with precious stones stands at the end of this immense room. There seem to be cards with"
         +" arms and legs with little pointy helmets standing in front of the door. It looks like they're keeping it. Better to be discreet with them, they look dangerous.", 
-        "Body-Card Garden","ImagesAlice/Body_card_garden.png",14);
+        "Body-Card Garden","ImagesAliceRedimmensionnées/Body_card_garden.png",14);
     }
 }

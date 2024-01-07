@@ -18,6 +18,6 @@ public class HumidHut extends Room
     public HumidHut()
     {
         // Initialization of instance variables
-        super ("A small, scary and dark dirthole","Humid Hut","ImagesAlice/Humid_hut.png",1);
+        super ("A small, scary and dark dirthole","Humid Hut","ImagesAliceRedimmensionnées/Humid_hut.png",1);
     }
 }

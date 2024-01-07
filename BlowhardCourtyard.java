@@ -20,6 +20,6 @@ public class BlowhardCourtyard extends Room
     {
         super ("A very neat courtyard with fountains and sculptures arranged in such a way that you are always amazed."
         +" A little too much decoration, perhaps…", "Blowhard Courtyard",
-        "ImagesAlice/blowhard_cotyard.jfif",10);
+        "ImagesAliceRedimmensionnées/blowhard_cotyard.jpg",10);
     }
 }

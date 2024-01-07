@@ -18,7 +18,7 @@ public class JoylessToilets extends Room
     public JoylessToilets()
     {
         super("Magnificent toilets but with a slightly worn color making the atmosphere heavy and oppressive."
-        +" The brush is missing.", "Joyless Toilets","ImagesAlice/Joyless_toilets.png",20);
+        +" The brush is missing.", "Joyless Toilets","ImagesAliceRedimmensionnées/Joyless_toilets.png",20);
     }
     
     public void setCountFlushRoyal(){

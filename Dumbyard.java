@@ -19,6 +19,6 @@ public class Dumbyard extends Room
     {
         // Initialization of instance variables
         super("This place is quite primitive, a civilized person wouldn't stay there long...",
-        "Dumbyard","ImagesAlice/dumbyard.jfif",21);
+        "Dumbyard","ImagesAliceRedimmensionnées/dumbyard.jfif",21);
     }
 }

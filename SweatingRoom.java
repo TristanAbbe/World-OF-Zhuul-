@@ -20,7 +20,7 @@ public class SweatingRoom extends Room
         // Initialization of instance variables
         super("An entrance hall with sofas, armchairs, and a well-stocked fridge. There even are beds. People must come here to"
         +" relax. On the other hand, the atmosphere is really heavy and hot there with all this fog but it seems to be a very particular kind of smoke, very good-smelling.", 
-        "Sweating Room","ImagesAlice/Sage_passage.png",6);
+        "Sweating Room","ImagesAliceRedimmensionnées/Sage_passage.png",6);
         //ImagesAlice/Sweating_room.png
     }
 

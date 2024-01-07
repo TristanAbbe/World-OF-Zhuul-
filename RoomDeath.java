@@ -10,7 +10,7 @@ public class RoomDeath extends Room
 
     public RoomDeath(){
     
-        super("This is the end youre are dead", "The END","ImagesAlice/Alice.png",30);
+        super("This is the end youre are dead", "The END","ImagesAliceRedimmensionnées/Mort_Partie_perdue.png",30);
     }
 
 }

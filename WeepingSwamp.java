@@ -19,6 +19,6 @@ public class WeepingSwamp extends Room
     {
         super ("A not very welcoming swamp, the smells emanating from this place are so unpleasant that they make me cry."
         +" I wonder what could be hiding in this slush...", "Weeping Swamp",
-        "ImagesAlice/Weeping_swamp.png",17);
+        "ImagesAliceRedimmensionnées/Weeping_swamp.png",17);
     }
 }

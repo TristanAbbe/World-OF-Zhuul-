@@ -19,7 +19,7 @@ public class LowlandWoodland extends Room
     {
         // Initialization of instance variables
         super("Plains as far as the eye can see. I don't want to get lost...",
-        "Lowland Woodland","ImagesAlice/LowlandWoodland.png",23);
+        "Lowland Woodland","ImagesAliceRedimmensionnées/LowlandWoodland.png",23);
     }
 
 }
