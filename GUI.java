@@ -337,8 +337,6 @@ public class GUI {
         System.out.println("room: " + game.getCurrentRoom().getName());
         System.out.println("character: " + game.getCurrentRoom().getCharacter(charactersList).getName());
 
-        
-
         if (charactersList.isEmpty()) {
             appendDialogue("There is no one to speak with in this room.");
         } else {
