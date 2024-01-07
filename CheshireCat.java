@@ -1,5 +1,6 @@
 import javax.swing.JOptionPane;
 import java.util.concurrent.TimeUnit;
+import java.util.Random; 
 
 /**
  * Represents the character Cheshire Cat in the game.
@@ -26,7 +27,7 @@ public class CheshireCat extends Character {
      */
     @Override
     public String dialogue() {
-        String message;
+        String message = "";
 
         // Different dialogues based on the state
         switch (getState()) {
@@ -74,9 +75,46 @@ public class CheshireCat extends Character {
             case 6:
                 message = "Curiouser and curiouser, Alice! Venture into the bunny hole and see what awaits you.";
                 break;
-            default:
+            case 7:
                 message = "Congratulations, Alice! You've completed your adventures. Now, it's time to leave Wonderland.";
                 break;
+            default:
+                Random random = new Random(); 
+                int x = random.nextInt(10); 
+                switch(x){
+                    case 0:
+                        message = "If everybody minded their own business, the world would go around a great deal faster than it does.\n";
+                        break;
+                    case 1: 
+                        message = "We’re all mad here.\n";
+                        break;
+                    case 2:
+                        message = "Can you stand on your head?\n";
+                        break;
+                    case 3:
+                        message = "Let your need guide your behavior.\n";
+                        break;
+                    case 4:
+                        message = "Collect what you can. Use it wisely.\n";
+                        break;
+                    case 5:
+                        message = "The uninformed must improve their deficit, or die.\n";
+                        break;
+                    case 6:
+                        message = "The proper order of things is often a mystery to me.\n";
+                        break;
+                    case 7:
+                        message = "Imagination is the only weapon in the war with reality.\n";
+                        break;
+                    case 8:
+                        message = "Only a few find the way, some don’t recognize it when they do – some… don’t ever want to.\n";
+                        break;
+                    case 9:
+                        message = "I went to a hunting party once, I didn’t like it. Terrible people. They all started hunting me!\n";
+                        break;
+                    
+                }
+                return message;
         }
 
         return message;

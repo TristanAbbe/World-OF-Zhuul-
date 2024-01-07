@@ -58,7 +58,7 @@ public class Absolem extends Character {
                 "I hope you will make great use of it.\n";
                 break;
             default:
-                message = "I am the Caterpillar. Welcome to Wonderland!";
+                message = "* Absolem seems deeply lost in his minds, only smoke comes out of his mouth *\n";
                 break;
         }
 
