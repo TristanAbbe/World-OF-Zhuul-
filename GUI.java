@@ -285,7 +285,7 @@ public class GUI {
                 game.getAlice().displayInventory();
                 break;
             case 11:
-                game.trade(game.getCurrentRoom(),game.getAlice(),"silkthread");
+                game.trade(game.getCurrentRoom(),game.getAlice(),"Silkthread");
                 game.getAlice().displayInventory();
                 break;
             case 18:
