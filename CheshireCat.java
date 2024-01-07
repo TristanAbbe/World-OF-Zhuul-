@@ -1,4 +1,5 @@
 import javax.swing.JOptionPane;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Represents the character Cheshire Cat in the game.
@@ -30,7 +31,31 @@ public class CheshireCat extends Character {
         // Different dialogues based on the state
         switch (getState()) {
             case 1:
-                message = "Welcome, Alice! The Caterpillar is waiting for you. Go see him!";
+                message = ("-Good meowrning pretty girl, what is your name ?"+
+                //TimeUnit.SECONDS.sleep(1)+
+                "- My name is Alice, nice to meet you!"+
+                //TimeUnit.SECONDS.sleep(1)+
+                "- What an unusual and weird name! I am the famous, the renowned and esteemed Cheshire Cat!"+ 
+                "Welcome to my palace that is world-known as the 'Catwalk'."+
+                //TimeUnit.SECONDS.sleep(1)+
+                "- Oh… Thank you dear cat for your kindness. I don’t know how I got there and I think I’m lost,"+
+                "could you help me find the exit to my human world ?"+
+                //TimeUnit.SECONDS.sleep(1)+
+                "- You’re so sweet Alice, this is the real Wonderland, also known as the World of Zhuul,"+
+                "you should take your time to visit it now that you’re there… We’re all mad here."+
+                //TimeUnit.SECONDS.sleep(1)+
+                "- I guess I could visit this place a bit, which way I ought to go from here?"+
+                //TimeUnit.SECONDS.sleep(1)+
+                "- That depends a good deal on where you want to get to."+
+                //TimeUnit.SECONDS.sleep(1)+
+                "- I don’t much care where, so long as I get somewhere."+
+                //TimeUnit.SECONDS.sleep(1)+
+                "- Oh, you’re sure to do that, if you only walk long enough! You should try to visit my dear friend Absolem, the caterpillar."+ 
+                "Just folow the clouds, Alice..."+
+                //TimeUnit.SECONDS.sleep(1)+
+                "* The Cheshire Cat mysteriously disappears, only leaving a fading white smile floating in the air *"+
+                //TimeUnit.SECONDS.sleep(1)+
+                "I’ve often seen a cat without a grin, but a grin without a cat! It’s the most curious thing I ever saw in my life!");
                 break;
             case 2:
                 message = "Hello again, Alice. I suggest you visit the fancy pharmacy for some medication.";
