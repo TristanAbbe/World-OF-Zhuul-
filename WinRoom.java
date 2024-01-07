@@ -9,6 +9,6 @@ public class WinRoom extends Room
 {
     public WinRoom(){
     
-        super("This is the end youre are dead", "The END","ImagesAlice/Alice.png",42);
+        super("This is the end youre are dead", "WinRoom","ImagesAlice/dumbyard.jfif",42);
     }
 }

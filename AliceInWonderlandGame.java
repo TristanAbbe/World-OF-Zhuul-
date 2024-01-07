@@ -31,31 +31,31 @@ public class AliceInWonderlandGame extends JFrame {
      */
     public void initWorld() {
         
-        HumidHut humidHut = new HumidHut();
-        Catwalk catwalk = new Catwalk();
-        SagePassage sagePassage = new SagePassage();
-        BlowhardCourtyard blowhardCourtyard = new BlowhardCourtyard();
-        JoylessToilets joylessToilets = new JoylessToilets();
-        HatmakersBunker hatmakersBunker = new HatmakersBunker();
-        BeaverRiver beaverRiver = new BeaverRiver();
-        WeepingSwamp weepingSwamp = new WeepingSwamp();
-        Dumbyard dumbyard = new Dumbyard();
-        BunnyLobby bunnyLobby = new BunnyLobby();
-        GloriousRabbitHole gloriousRabbitHole = new GloriousRabbitHole();
-        DespairAlley despairAlley = new DespairAlley();
-        WareSquare wareSquare = new WareSquare();
-        FancyPharmacy fancyPharmacy = new FancyPharmacy();
-        SweatingRoom sweatingRoom = new SweatingRoom();
-        SmokeyLobby smokeyLobby = new SmokeyLobby();
-        CaterpillarCraddle caterpillarCraddle = new CaterpillarCraddle();
-        NoRestForest noRestForest = new NoRestForest();
-        TwinsBinDen twinsBinDen = new TwinsBinDen();
-        MenacePalace menacePalace = new MenacePalace();
-        LowlandWoodland lowlandWoodland = new LowlandWoodland();
-        BodyCardGarden bodyCardGarden = new BodyCardGarden();
-        HeartQueenArena heartQueenArena = new HeartQueenArena();
-        RoomDeath roomDeath = new RoomDeath();
-        WinRoom winRoom = new WinRoom();
+        Room humidHut = new HumidHut();
+        Room catwalk = new Catwalk();
+        Room sagePassage = new SagePassage();
+        Room blowhardCourtyard = new BlowhardCourtyard();
+        Room joylessToilets = new JoylessToilets();
+        Room hatmakersBunker = new HatmakersBunker();
+        Room beaverRiver = new BeaverRiver();
+        Room weepingSwamp = new WeepingSwamp();
+        Room dumbyard = new Dumbyard();
+        Room bunnyLobby = new BunnyLobby();
+        Room gloriousRabbitHole = new GloriousRabbitHole();
+        Room despairAlley = new DespairAlley();
+        Room wareSquare = new WareSquare();
+        Room fancyPharmacy = new FancyPharmacy();
+        Room sweatingRoom = new SweatingRoom();
+        Room smokeyLobby = new SmokeyLobby();
+        Room caterpillarCraddle = new CaterpillarCraddle();
+        Room noRestForest = new NoRestForest();
+        Room twinsBinDen = new TwinsBinDen();
+        Room menacePalace = new MenacePalace();
+        Room lowlandWoodland = new LowlandWoodland();
+        Room bodyCardGarden = new BodyCardGarden();
+        Room heartQueenArena = new HeartQueenArena();
+        Room roomDeath = new RoomDeath();
+        Room winRoom = new WinRoom();
         
         //set the exits 
         humidHut.setExit("South", catwalk);
@@ -240,20 +240,12 @@ public class AliceInWonderlandGame extends JFrame {
         }
     }
     
-    public void flushToilet(){
-        if (currentRoom.getName() == "Joyless Toilets") {
-            if (currentRoom instanceof JoylessToilets){
-                JoylessToilets toilette = (JoylessToilets) currentRoom;
-                if (toilette.getCountFlushRoyal() < 5){
-                toilette.setCountFlushRoyal();
-                System.out.println("CACA Numéro " + toilette.getCountFlushRoyal());
-                
-                }
-            }
-            setSpecificRoom("winRoom");
+    public void flushToilet(JoylessToilets toilette){
+        if (toilette.getCountFlushRoyal() < 5) {
+            toilette.setCountFlushRoyal();
         }
     }
-    
+        
     /**
      * Moves the player to the next room in the specified direction.
      * Decreases Alice's hunger and updates the game state.

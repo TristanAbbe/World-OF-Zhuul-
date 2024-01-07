@@ -26,6 +26,7 @@ public class GUI {
     private JPanel centerLeftPanel;
     private JPanel centerRightPanel;
     private JLabel roomImageLabel;
+    private boolean victory = false;
     // Fonts
     private static final Font FONT_BIG = new Font("Arial", Font.BOLD, 40);
     private static final Font FONT_MEDIUM = new Font("Arial", Font.BOLD, 28);
@@ -289,10 +290,20 @@ public class GUI {
                 game.getAlice().displayInventory();
                 break;
             case 19:
-
+                //game.hit();
                 break;
             case 20:
-                game.flushToilet();
+                if (game.getCurrentRoom() instanceof JoylessToilets) {
+                    JoylessToilets toilette = (JoylessToilets) game.getCurrentRoom();
+                    game.flushToilet(toilette);
+                    if (toilette.getCountFlushRoyal() >= 5) {
+                        victory = true ; 
+                        System.out.println("1" + toilette.getCountFlushRoyal());
+                        handleMove("");
+                    }
+                    System.out.println("2" + toilette.getCountFlushRoyal());
+                }
+                
                 break;
             case 14:
                 
@@ -371,7 +382,9 @@ public class GUI {
     private void handleMove(String direction) {
         Room currentRoom = game.getCurrentRoom();
         Room nextRoom = currentRoom.getExit(direction);
-
+        if (victory){
+                game.setSpecificRoom("winRoom");
+        }
         if (nextRoom == null) {
             JOptionPane.showMessageDialog(null, "Il n'y a pas de chambre dans cette direction !");
         } else {
@@ -385,6 +398,7 @@ public class GUI {
             updateRoomImage();
         }
     }
+    
         /**
      * Updates the inventory label in the GUI to reflect the current state of Alice's inventory.
      * This method is called when there is a change in the inventory, such as adding or removing items.
