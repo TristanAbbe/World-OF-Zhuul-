@@ -180,7 +180,7 @@ public class GUI {
     private JPanel createSouthPanel() {
         JPanel southPanel = new JPanel(new FlowLayout());
         JPanel southWestPanel = createSouthWestPanel();
-        dialogueTextArea = new JTextArea(5, 40);
+        dialogueTextArea = new JTextArea(5, 80);
         dialogueTextArea.setEditable(false);  // Make it non-editable
 
         southPanel.add(southWestPanel);
