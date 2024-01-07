@@ -58,7 +58,9 @@ public class CheshireCat extends Character {
                 "I’ve often seen a cat without a grin, but a grin without a cat! It’s the most curious thing I ever saw in my life!");
                 break;
             case 2:
-                message = "Hello again, Alice. I suggest you visit the fancy pharmacy for some medication.";
+                message = "-Hello again, Alice, where are you running like that ?\n"+
+                "- I need to find something to cure Absolem'headache...\n"+
+                "- I suggest you visit the fancy pharmacy for some medication. It is located North-East from here";
                 break;
             case 3:
                 message = "Great to see you, Alice! Take the medication to the Caterpillar; he'll appreciate it.";

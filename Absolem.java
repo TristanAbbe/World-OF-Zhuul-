@@ -34,22 +34,28 @@ public class Absolem extends Character {
         // Different dialogues based on the state
         switch (getState()) {
             case 1:
-                message = "- Hello, you surely must be Absolem ? My name is Alice."+
-                "- Oh... My head...... Are you real or an hallucination ?"+
-                "- I am a real person, mister Absolem"+
-                "- Stupid girl. You're not Absolem, I am Absolem. Oooh I'm such in great pain because of this stupid hookah..."+
-                "- Are you high ?"+
-                "- I am exactically three inches high, and it is a very good height indeed!"+
-                "- What can I do to help you ?"+
-                "- I need some medications for my head."+
-                "- Where can I find that ?"+
-                "-Stop talking, you hurt my head. Leave now, come back only if you have what I need.";
+                message = "- Hello, you surely must be Absolem ? My name is Alice.\n"+
+                "- Oh... My head...... Are you real or an hallucination ?\n"+
+                "- I am a real person, mister Absolem.\n"+
+                "- Stupid girl. You're not Absolem, I am Absolem. Oooh I'm such in great pain because of this stupid hookah...\n"+
+                "- Are you high ?\n"+
+                "- I am exactically three inches high, and it is a very good height indeed!\n"+
+                "- What can I do to help you ?\n"+
+                "- I need some medications for my head.\n"+
+                "- Where can I find that ?\n"+
+                "-Stop talking, you hurt my head. Leave now, come back only if you have what I need.\n";
                 break;
             case 2:
-                message = "I am good, I don't have a headache anymore.";
+                message = "Oh you again... Please don't talk.\n"+
+                "- I have a medicatin called Doubiprane, will it suit you ?\n"+
+                "- Aargh... GIVE IT TO ME! I can't bear the pain.\n";
+                //Give the doubiprane
+                
+                //+"I am good, I don't have a headache anymore.";
                 break;
             case 3:
-                message = "I hope this string will help you.";
+                message = "- Finally! I feel better now, thank you for your help. I will grant you with the most priceless material around here."+
+                "I hope you will make great use of it.\n";
                 break;
             default:
                 message = "I am the Caterpillar. Welcome to Wonderland!";
