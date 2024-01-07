@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -14,7 +15,6 @@ import java.util.List;
 public class Alice {
 
     // Instance variables for Alice
-    private LilDrink lilDrink;
     private List<Item> inventory;
     private String name;
     private Room room;
@@ -31,8 +31,6 @@ public class Alice {
         setName("Alice");
         path = "ImagesAlice/Alice.png";
         this.inventory = new ArrayList<>();
-        lilDrink = new LilDrink();
-        addItem(lilDrink);
     }
 
     /**
@@ -84,22 +82,68 @@ public class Alice {
     }
 
     /**
-     * Adds an item to Alice's inventory.
-     * @param item The item to add to Alice's inventory.
+     * Adds an item to Alice's inventory based on its name.
+     * @param itemName The name of the item to add to Alice's inventory.
      */
-    public void addItem(Item item) {
-        inventory.add(item);
+    public void addItem(String itemName) {
+        
+        try {
+            Item newItem = createItemName(itemName);
+            inventory.add(newItem);
+            System.out.println("Added item: " + itemName);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Could not add item with name '" + itemName + "'. " + e.getMessage());
+        }
+    }
+    
+    private Item createItemName(String itemName) {
+        switch (itemName.toLowerCase()) {
+            case "liltledrink":
+                return new LiltleDrink();
+            case "grasnolax":
+                return new Grasnolax();
+            case "doubiprane":
+                return new Doubiprane();
+            case "taco":
+                return new Taco();
+            case "helmet":
+                return new Helmet();
+            case "silkthread":
+                return new SilkThread();
+            default:
+                throw new IllegalArgumentException("Unknown item name: " + itemName);
+        }
+    }
+    
+    /**
+     * Removes an item from Alice's inventory based on its name.
+     * @param itemName The name of the item to remove from Alice's inventory.
+     */
+    public void removeItem(String itemName) {
+        Iterator<Item> iterator = inventory.iterator();
+        while (iterator.hasNext()) {
+            Item currentItem = iterator.next();
+            if (currentItem.getName().equals(itemName)) {
+                iterator.remove();
+                System.out.println("Removed item: " + itemName);
+                return;
+            }
+        }
+        System.out.println("Item with name '" + itemName + "' not found in the inventory.");
     }
 
-    /**
-     * Removes an item from Alice's inventory.
-     * @param item The item to remove from Alice's inventory.
+        /**
+     * Checks if Alice's inventory contains an item with the specified name.
+     * @param itemName The name of the item to check for in Alice's inventory.
+     * @return True if the item is in the inventory, false otherwise.
      */
-    public void removeItem(Item item) {
-        if (inventory.contains(item))
-            inventory.remove(item);
-        else
-            System.out.println("There is no such item in the inventory");
+    public boolean hasItem(String itemName) {
+        for (Item item : inventory) {
+            if (item.getName().equalsIgnoreCase(itemName)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**

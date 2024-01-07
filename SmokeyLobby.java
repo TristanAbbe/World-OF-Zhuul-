@@ -19,7 +19,8 @@ public class SmokeyLobby extends Room
     {
         // Initialization of instance variables
         super("The cloud is denser in this room; it seems to be miles long. A pink elephant appeared for a moment; it's very strange."
-        +" Colors become sounds, and everything seems to be more intense. It seems that this fog confers extraordinary abilities.", "Smokey Lobby","ImagesAlice/Smokey_lobby.png");
+        +" Colors become sounds, and everything seems to be more intense. It seems that this fog confers extraordinary abilities.",
+        "Smokey Lobby","ImagesAlice/Smokey_lobby.png",7);
     }
 
 }

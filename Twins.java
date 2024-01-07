@@ -18,7 +18,7 @@ public class Twins extends Character {
      */
     public Twins() {
         super("Twins TweedleDee and TweedleDum", "Hi! We are the twins TweedleDee and TweedleDum");
-        taco = new Taco();
+        Item taco = new Taco();
         addItem(taco);
     }
 

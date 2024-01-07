@@ -18,6 +18,6 @@ public class MenacePalace extends Room
     public MenacePalace()
     {
         super("This is the entrance to a huge, menacing house of cards! The design of this castle must have been very laborious.", 
-        "Menace Palace","ImagesAlice/menace_palace.png");
+        "Menace Palace","ImagesAlice/menace_palace.png",13);
     }
 }

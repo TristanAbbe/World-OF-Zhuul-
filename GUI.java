@@ -85,7 +85,7 @@ public class GUI {
      */
     private JPanel createCenterLeftPanel() {
         JPanel panel = new JPanel(new GridLayout(2, 1));
-        panel.setPreferredSize(new Dimension(200, 150));
+        //panel.setPreferredSize(new Dimension(200, 150));
 
         JLabel nameLabel = createFormattedLabel(game.getCurrentRoom().getName(), FONT_BIG);
         JLabel descriptionLabel = createFormattedLabel(game.getCurrentRoom().getDescription(), FONT_MEDIUM);
@@ -269,24 +269,61 @@ public class GUI {
      * Handles the "Action" button click, triggering the corresponding action in the game.
      */
     private void action() {
-        // Handle the "Action" button click in the game
-    }
+        System.out.println("room: " + game.getCurrentRoom().getName());
+        
+        switch (game.getCurrentRoom().getNumberRoom()) {
+            case 8:
+                game.trade(game.getCurrentRoom(),game.getAlice(),"Doubiprane");
+                game.getAlice().displayInventory();
+                break;
+            case 5:
+                game.trade(game.getCurrentRoom(),game.getAlice(),"");
+                game.getAlice().displayInventory();
+                break;
+            case 11:
+                game.trade(game.getCurrentRoom(),game.getAlice(),"silkthread");
+                game.getAlice().displayInventory();
+                break;
+            case 18:
+                game.trade(game.getCurrentRoom(),game.getAlice(),"");
+                game.getAlice().displayInventory();
+                break;
+            case 19:
 
+                break;
+            case 20:
+                game.flushToilet();
+                break;
+            case 14:
+                
+                break;
+            case 15:
+                
+                break;
+            default:
+                System.out.println("Balise 1");
+                break;
+        }
+        System.out.println("Balise 2");
+        
+    }
+    
     /**
      * Handles the "Parler" button click, triggering a dialogue with characters in the current room.
      */
     public void parler() {
+        List<Character> charactersList = game.getCurrentRoom().getCharacterList();
         // Check if the current room has characters
         System.out.println("room: " + game.getCurrentRoom().getName());
-        System.out.println("character: " + game.getCurrentRoom().getCharacter().getName());
+        System.out.println("character: " + game.getCurrentRoom().getCharacter(charactersList).getName());
 
-        List<Character> characters = game.getCurrentRoom().getCharacterList();
+        
 
-        if (characters.isEmpty()) {
+        if (charactersList.isEmpty()) {
             appendDialogue("There is no one to speak with in this room.");
         } else {
             // take the first character in the list
-            Character characterToParler = characters.get(0);
+            Character characterToParler = charactersList.get(0);
 
             // Get the character's dialogue
             String dialogue = characterToParler.dialogue();
@@ -341,7 +378,7 @@ public class GUI {
             game.movePlayer(direction);
             // Décrémenter la faim uniquement si la direction mène à une sortie
             if (game.getAlice().getDeath()){
-                game.setDeathRoom();
+                game.setSpecificRoom("RoomDeath");
             }
             updateHungerProgressBar();
             updateRoomInfo();
@@ -360,6 +397,7 @@ public class GUI {
         frame.revalidate();
         frame.repaint();
     }
+    
     /**
      * Updates the hunger progress bar in the GUI to reflect Alice's current hunger level.
      * This method is called when there is a change in Alice's hunger level.

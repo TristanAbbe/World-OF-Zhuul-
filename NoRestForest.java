@@ -19,7 +19,7 @@ public class NoRestForest extends Room
     {
         // Initialization of instance variables
         super("A big forest with big trees everywhere. There is only one narrow passage to squeeze through. You definitely"
-        +" shouldn't stop for a pee break.", "No-Rest Forest","ImagesAlice/No_rest_forest.png");
+        +" shouldn't stop for a pee break.", "No-Rest Forest","ImagesAlice/No_rest_forest.png",12);
     }
 
 }

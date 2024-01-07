@@ -10,7 +10,7 @@
  * @version 1.0 (Date: YYYY-MM-DD)
  */
 public class JoylessToilets extends Room
-{
+{   private int countFlushRoyal = 0 ;
     /**
      * Constructor for objects of the JoylessToilets class.
      * Initializes the JoylessToilets with a specific description, name, and icon path.
@@ -18,6 +18,14 @@ public class JoylessToilets extends Room
     public JoylessToilets()
     {
         super("Magnificent toilets but with a slightly worn color making the atmosphere heavy and oppressive."
-        +" The brush is missing.", "Joyless Toilets","ImagesAlice/Joyless_toilets.png");
+        +" The brush is missing.", "Joyless Toilets","ImagesAlice/Joyless_toilets.png",20);
+    }
+    
+    public void setCountFlushRoyal(){
+        this.countFlushRoyal++;
+    }
+    
+    public int getCountFlushRoyal(){
+        return countFlushRoyal;
     }
 }

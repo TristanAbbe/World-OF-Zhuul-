@@ -21,7 +21,7 @@ public class BunnyLobby extends Room
     {
         super("A small burrow that you can access through a small door but there seems to be another exit."
         +" A normal-sized person certainly couldn't enter this room. A basket of dusty Grasnolax is lying on the floor in the corner of the room, weird...", 
-        "Bunny Lobby","ImagesAlice/bunny_lobby.png");
+        "Bunny Lobby","ImagesAlice/bunny_lobby.png",18);
         
         grasnolax = new Grasnolax();
         addItem(grasnolax);

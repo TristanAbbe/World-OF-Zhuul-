@@ -22,7 +22,7 @@ public class GloriousRabbitHole extends Room {
     public GloriousRabbitHole() {
         super("A small room whose entrance is a tiny hole, a normal-sized person wouldn't be able to fit in at all!"
                 + " Nevertheless, this room is very warm with gorgeous objects such as a tea set and a toilet brush. Someone must be living there.",
-                "Glorious Rabbit Hole", "ImagesAlice/Glorious_rabbit_hole.png");
+                "Glorious Rabbit Hole", "ImagesAlice/Glorious_rabbit_hole.png",19);
 
         Character rabbit = new MarchHare();
         ajouterPersonnage(rabbit);

@@ -9,13 +9,13 @@
  * @author ABBE Tristan, ANET Janelle, DELPIROU Corentin, MAZURIE Jules, PERSONNE Germain, RIVIERE Jade
  * @version 1.0 (Date: YYYY-MM-DD)
  */
-public class LilDrink extends Item
+public class LiltleDrink extends Item
 {
     /**
      * Constructor for objects of the LilDrink class.
      * Initializes the LilDrink with a specific name, description, and icon path.
      */
-    public LilDrink()
+    public LiltleDrink()
     {
         // Initialization of instance variables
         super("Little Drink",

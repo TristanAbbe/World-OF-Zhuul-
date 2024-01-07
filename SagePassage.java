@@ -17,7 +17,8 @@ public class SagePassage extends Room
      */
     public SagePassage()
     {
-       super("A quiet hallway where you feel safe. Better to follow the path and not deviate.", "Sage Passage","ImagesAlice/Sage_passage.png");
+       super("A quiet hallway where you feel safe. Better to follow the path and not deviate.",
+       "Sage Passage","ImagesAlice/Sage_passage.png",9);
        
     }
 }

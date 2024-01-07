@@ -16,7 +16,7 @@ public class MadHatter extends Character {
      */
     public MadHatter() {
         super("MadHatter", "Hello my dear, you are in front of the Mad Hatter!");
-        helmet = new Helmet();
+        Item helmet = new Helmet();
         addItem(helmet);
     }
 }

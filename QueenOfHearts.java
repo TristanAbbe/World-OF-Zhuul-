@@ -9,7 +9,7 @@
 public class QueenOfHearts extends Character {
 
     // Instance variable for the Queen of Hearts
-    private LilDrink lilDrink;
+    private LiltleDrink lilDrink;
 
     /**
      * Constructs the Queen of Hearts character.
@@ -18,7 +18,7 @@ public class QueenOfHearts extends Character {
      */
     public QueenOfHearts() {
         super("Queen of Hearts", "Respect me, I am the Queen of Hearts");
-        lilDrink = new LilDrink();
+        Item LiltleDrink = new LiltleDrink();
         addItem(lilDrink);
     }
 

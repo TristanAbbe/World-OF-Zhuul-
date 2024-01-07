@@ -18,7 +18,8 @@ public class LowlandWoodland extends Room
     public LowlandWoodland()
     {
         // Initialization of instance variables
-        super("Plains as far as the eye can see. I don't want to get lost...","Lowland Woodland","ImagesAlice/LowlandWoodland.png");
+        super("Plains as far as the eye can see. I don't want to get lost...",
+        "Lowland Woodland","ImagesAlice/LowlandWoodland.png",23);
     }
 
 }

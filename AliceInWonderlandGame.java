@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.*;
+import java.util.List;
 
 /**
  * Represents the main game class for "Alice in Wonderland" adventure.
@@ -12,7 +13,6 @@ import javax.swing.*;
  */
 public class AliceInWonderlandGame extends JFrame {
     private Room currentRoom;
-    private ArrayList<Event> event;
     private HashMap<String, Room> roomsMap;
     private Alice alice;
     private boolean death = false;
@@ -55,6 +55,7 @@ public class AliceInWonderlandGame extends JFrame {
         BodyCardGarden bodyCardGarden = new BodyCardGarden();
         HeartQueenArena heartQueenArena = new HeartQueenArena();
         RoomDeath roomDeath = new RoomDeath();
+        WinRoom winRoom = new WinRoom();
         
         //set the exits 
         humidHut.setExit("South", catwalk);
@@ -149,6 +150,7 @@ public class AliceInWonderlandGame extends JFrame {
         roomsMap.put("BodyCardGarden", bodyCardGarden);
         roomsMap.put("HeartQueenArena", heartQueenArena);
         roomsMap.put("RoomDeath",roomDeath);
+        roomsMap.put("winRoom",winRoom);
         
         setCurrentRoom(humidHut);
     }
@@ -175,8 +177,8 @@ public class AliceInWonderlandGame extends JFrame {
      * Sets the current room to the death room.
      * This is called when the player dies in the game.
      */
-    public void setDeathRoom() {
-        currentRoom = roomsMap.get("RoomDeath");
+    public void setSpecificRoom(String room) {
+        currentRoom = roomsMap.get(room);
     }
 
     /**
@@ -205,7 +207,53 @@ public class AliceInWonderlandGame extends JFrame {
     public String roomImage() {
         return currentRoom.getPath();
     }
-
+    
+        public void trade(Room currentRoom, Alice alice, String item){
+        
+        List<Character> charactersList = currentRoom.getCharacterList();
+        
+        if (!charactersList.isEmpty()){
+            Character temporaryCharacter = charactersList.get(0);
+            if (!temporaryCharacter.getItemQuest()){
+                String characterName = currentRoom.getCharacter(charactersList).getName();
+                if (temporaryCharacter.getName() == characterName){
+                    String itemName = item;
+                    if (alice.hasItem(itemName)){
+                        String recievedItem = currentRoom.getCharacter(charactersList).getItem().getName();
+                        alice.removeItem(itemName);
+                        currentRoom.getCharacter(charactersList).addItem(itemName);
+                        currentRoom.getCharacter(charactersList).setItemQuest(true);
+                        alice.addItem(recievedItem);
+                    }
+                }   
+            }
+        }
+        else if (currentRoom.getName()== "Fancy Pharmacy"){
+            if (!alice.hasItem(currentRoom.getItem().getName())){
+                alice.addItem(currentRoom.getItem().getName());
+            }
+        }
+        else if(currentRoom.getName()== "Bunny Lobby"){
+            if (!alice.hasItem(currentRoom.getItem().getName())){
+                alice.addItem(currentRoom.getItem().getName());
+            }
+        }
+    }
+    
+    public void flushToilet(){
+        if (currentRoom.getName() == "Joyless Toilets") {
+            if (currentRoom instanceof JoylessToilets){
+                JoylessToilets toilette = (JoylessToilets) currentRoom;
+                if (toilette.getCountFlushRoyal() < 5){
+                toilette.setCountFlushRoyal();
+                System.out.println("CACA Numéro " + toilette.getCountFlushRoyal());
+                
+                }
+            }
+            setSpecificRoom("winRoom");
+        }
+    }
+    
     /**
      * Moves the player to the next room in the specified direction.
      * Decreases Alice's hunger and updates the game state.
@@ -224,4 +272,5 @@ public class AliceInWonderlandGame extends JFrame {
             }
         }
     }
+    
 }

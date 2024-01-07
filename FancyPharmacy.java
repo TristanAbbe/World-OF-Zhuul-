@@ -24,7 +24,8 @@ public class FancyPharmacy extends Room
     {
        super("I better understand why this room was hidden, there are tons of packaged medicine arranged in a very symmetrical way!"
         +" Among all its well-maintained goods, one of them stands out with a streak of light delicately depositing on the packaging, reflecting all its"
-        +" splendor in the room. This is a box of Doubiprane.", "Fancy Pharmacy","ImagesAlice/Fancy_farmacy.png");
+        +" splendor in the room. This is a box of Doubiprane.", "Fancy Pharmacy",
+        "ImagesAlice/Fancy_farmacy.png",5);
         
         doubiprane = new Doubiprane();
         addItem(doubiprane); 

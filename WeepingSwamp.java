@@ -18,6 +18,7 @@ public class WeepingSwamp extends Room
     public WeepingSwamp()
     {
         super ("A not very welcoming swamp, the smells emanating from this place are so unpleasant that they make me cry."
-        +" I wonder what could be hiding in this slush...", "Weeping Swamp","ImagesAlice/Weeping_swamp.png");
+        +" I wonder what could be hiding in this slush...", "Weeping Swamp",
+        "ImagesAlice/Weeping_swamp.png",17);
     }
 }

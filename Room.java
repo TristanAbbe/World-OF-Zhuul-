@@ -18,7 +18,7 @@ public class Room {
     private String name;
     private String description;
     private HashMap<String, Room> exits;
-    private int status;
+    private int numberRoom;
     private Item item;
     private String lienImage;
     private List<Character> characterList = new ArrayList<>();
@@ -33,9 +33,10 @@ public class Room {
      * @param name The name of the room.
      * @param pathImage The path to the image associated with the room.
      */
-    public Room(String description, String name, String pathImage) {
+    public Room(String description, String name, String pathImage,int numberRoom) {
         setDescription(description);
         setName(name);
+        setNumberRoom(numberRoom);
         exits = new HashMap<>();
         setLienImage(pathImage);
     }
@@ -104,7 +105,15 @@ public class Room {
             throw new IllegalArgumentException("Description cannot be null or empty.");
         }
     }
-
+    
+    public int getNumberRoom(){
+        return numberRoom;
+    }
+    
+    public void setNumberRoom(int numberRoom){
+        this.numberRoom = numberRoom;
+    }
+    
     /**
      * Gets the exit for a specified direction.
      *
@@ -165,7 +174,7 @@ public class Room {
      *
      * @return The first character in the list.
      */
-    public Character getCharacter(){
+    public Character getCharacter(List<Character> characterList ){
         Character characterInList = characterList.get(0);
         return characterInList;
     }
@@ -223,7 +232,12 @@ public class Room {
     public List<Item> getItemList() {
         return itemList;
     }
-
+    
+    public Item getItem(){
+        Item itemInList = itemList.get(0);
+        return itemInList;
+    }
+    
     /**
      * Adds an item to the list of items in the room.
      *

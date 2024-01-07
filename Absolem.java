@@ -9,7 +9,6 @@ import javax.swing.JOptionPane;
  * @version (a version number or a date)
  */
 public class Absolem extends Character {
-    private boolean headache;
     private SilkThread silkthread;
 
     /**
@@ -19,8 +18,7 @@ public class Absolem extends Character {
      */
     public Absolem() {
         super("Absolem", "Hi, I'm Absolem");
-        headache = true;
-        silkthread = new SilkThread();
+        Item silkthread = new SilkThread();
         addItem(silkthread);
     }
 
