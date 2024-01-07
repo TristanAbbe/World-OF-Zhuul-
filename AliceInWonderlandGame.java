@@ -224,6 +224,9 @@ public class AliceInWonderlandGame extends JFrame {
                         currentRoom.getCharacter(charactersList).addItem(itemName);
                         currentRoom.getCharacter(charactersList).setItemQuest(true);
                         alice.addItem(recievedItem);
+                        if (recievedItem.equals("Helmet")){
+                            alice.setHaveHelmet(true);
+                        }
                     }
                 }   
             }
@@ -253,16 +256,54 @@ public class AliceInWonderlandGame extends JFrame {
      * @param direction The direction in which to move.
      */
     public void movePlayer(String direction) {
-        if (!death) {
-            Room nextRoom = currentRoom.getExit(direction);
+    Room nextRoom = currentRoom.getExit(direction);
 
-            if (nextRoom == null) {
-                JOptionPane.showMessageDialog(null, "Il n'y a pas de chambre dans cette direction !");
+    if (!death) {
+        if (nextRoom == null) {
+            JOptionPane.showMessageDialog(null, "Il n'y a pas de chambre dans cette direction !");
+        } else {
+            boolean canMove = false;
+
+            // Check if Alice is in a special room with conditions
+            if (nextRoom.getName().equals("Queen of Hearts' Arena")) {
+                canMove = alice.getHaveHelmet();System.out.println("gajo ");
+            } else if (nextRoom.getName().equals("Beaver River")) {
+                canMove = alice.getHeight() == 1;System.out.println("gaji: " );
+            } else if (nextRoom.getName().equals("Bunny Lobby")) {
+                canMove = alice.getHeight() == 0;System.out.println("gaja: ");
             } else {
+                canMove = true;System.out.println("goja: ");
+            }
+
+            if (canMove) {
                 setCurrentRoom(nextRoom);
                 alice.decreaseHunger(5);
+            } else {
+                System.out.println("Player died. Reason: " + getDeathReason(nextRoom));
+                alice.setDeath(true);
             }
         }
+    } else {
+        setCurrentRoom(nextRoom);
+        alice.decreaseHunger(5);
     }
-    
+}
+
+
+private String getDeathReason(Room nextRoom) {
+    if (nextRoom.getName().equals("QuuensGarden") && !alice.getHaveHelmet()) {
+        return "Missing Helmet";
+    } else if (nextRoom.getName().equals("BeaverRiver") && alice.getHeight() != 1) {
+        return "Incorrect Height";
+    } else if (nextRoom.getName().equals("BunnyLobby") && alice.getHeight() != 0) {
+        return "Incorrect Height";
+    } else {
+        return "Unknown Reason";
+    }
+}
+
+
+    public boolean haveHelmet(){
+        return alice.getHaveHelmet();
+    }
 }

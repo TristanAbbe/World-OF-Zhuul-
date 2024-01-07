@@ -139,6 +139,9 @@ public class GUI {
     private JPanel createCenterRightPanel() {
         JPanel panel = new JPanel(new BorderLayout());
         ImageIcon imageAlice = new ImageIcon(game.getAlice().getPath());
+        if (game.getAlice().getHaveHelmet()){
+            game.getAlice().setPathImage("ImagesAlice/Alice-Casque.png");
+        }
         JLabel imageLabelAlice = new JLabel(imageAlice);
         panel.add(imageLabelAlice, BorderLayout.NORTH);
 
@@ -303,7 +306,6 @@ public class GUI {
                     }
                     System.out.println("2" + toilette.getCountFlushRoyal());
                 }
-                
                 break;
             case 14:
                 
@@ -311,12 +313,17 @@ public class GUI {
             case 15:
                 
                 break;
+            case 22 :
+                
+                break; 
             default:
                 System.out.println("Balise 1");
                 break;
         }
         System.out.println("Balise 2");
-        
+        updateHungerProgressBar();
+        updateRoomInfo();
+        updateRoomImage();        
     }
     
     /**
@@ -342,6 +349,9 @@ public class GUI {
             // Display the dialogue in the dialogueTextArea
             appendDialogue(dialogue);
         }
+        updateHungerProgressBar();
+        updateRoomInfo();
+        updateRoomImage();
     }
 
     /**
@@ -385,11 +395,17 @@ public class GUI {
         if (victory){
                 game.setSpecificRoom("winRoom");
         }
+        
+        if (game.getAlice().getHaveHelmet()){
+            
+        }
+        
+        
         if (nextRoom == null) {
             JOptionPane.showMessageDialog(null, "Il n'y a pas de chambre dans cette direction !");
-        } else {
+        }else {
             game.movePlayer(direction);
-            // Décrémenter la faim uniquement si la direction mène à une sortie
+            
             if (game.getAlice().getDeath()){
                 game.setSpecificRoom("RoomDeath");
             }
@@ -399,15 +415,16 @@ public class GUI {
         }
     }
     
-        /**
+    /**
      * Updates the inventory label in the GUI to reflect the current state of Alice's inventory.
      * This method is called when there is a change in the inventory, such as adding or removing items.
      */
     public void updateInventoryLabel() {
         // Update the inventory label in the GUI
-        JLabel inventoryLabel = createInventoryLabel();
+        JPanel ImagePabel = createCenterRightPanel();
+        //JLabel inventoryLabel = createInventoryLabel();
         centerRightPanel.removeAll();
-        centerRightPanel.add(inventoryLabel, BorderLayout.CENTER);
+        centerRightPanel.add(ImagePabel, BorderLayout.CENTER);
         frame.revalidate();
         frame.repaint();
     }

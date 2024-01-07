@@ -64,6 +64,7 @@ public class MiniGame
             System.out.println("Twins won with " + manchesTwins + " rounds !");
         }
     }
+    
     public String jouerPileOuFace() {
         Random rand = new Random();
         int resultat = rand.nextInt(2); // Génère 0 ou 1 (0:pile ou 1:face)

@@ -21,6 +21,8 @@ public class Alice {
     private int hunger = 100;
     private boolean death = false;
     private String path;
+    private boolean haveHelmet = false;
+    private int Height = 1;
 
     /**
      * Constructs the Alice character.
@@ -72,7 +74,21 @@ public class Alice {
     public String getPath() {
         return path;
     }
-
+    
+    /**
+     * Sets the path to the image associated with Alice.
+     *
+     * @param pathImage The new path to the image.
+     * @throws IllegalArgumentException if the path is null or empty.
+     */
+    public void setPathImage(String pathImage) {
+        if (pathImage != null && !pathImage.trim().isEmpty()) {
+            this.path = pathImage.trim();
+        } else {
+            throw new IllegalArgumentException("Path image cannot be null or empty.");
+        }
+    }
+    
     /**
      * Checks if Alice is dead.
      * @return True if Alice is dead, false otherwise.
@@ -80,7 +96,29 @@ public class Alice {
     public boolean getDeath() {
         return death;
     }
+    
+    public void setDeath(boolean alive){
+        this.death = alive;
+    }
+        // Getter method for haveHelmet
+    public boolean getHaveHelmet() {
+        return haveHelmet;
+    }
 
+    // Setter method for haveHelmet
+    public void setHaveHelmet(boolean haveHelmet) {
+        this.haveHelmet = haveHelmet;
+    }
+    
+    public int getHeight() {
+        return Height;
+    }
+
+    // Setter method for taille
+    public void setHeight(int newHeight) {
+        this.Height = newHeight;
+    }
+    
     /**
      * Adds an item to Alice's inventory based on its name.
      * @param itemName The name of the item to add to Alice's inventory.
