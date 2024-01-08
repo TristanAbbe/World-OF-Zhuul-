@@ -10,7 +10,6 @@ public class QueenOfHearts extends Character {
 
     // Instance variable for the Queen of Hearts
     private LiltleDrink lilDrink;
-    private MiniGame miniGame;
 
     
     /**
@@ -22,12 +21,6 @@ public class QueenOfHearts extends Character {
         super("Queen of Hearts", "Respect me, I am the Queen of Hearts");
         Item LiltleDrink = new LiltleDrink();
         addItem(lilDrink);
-        MiniGame miniGame = new MiniGame();
-    }
-
-    @Override
-    public MiniGame getMiniGame(){
-        return miniGame;
     }
     
     /**

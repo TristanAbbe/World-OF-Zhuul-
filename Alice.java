@@ -21,9 +21,8 @@ public class Alice {
     private int hunger = 100;
     private boolean death = false;
     private String path;
-    private boolean haveHelmet = false;
+    private boolean haveHelmet = true; //remettre a false
     private int Height = 1;
-
     /**
      * Constructs the Alice character.
      * Initializes Alice with the name "Alice," a default path for the image,

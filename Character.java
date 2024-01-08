@@ -15,7 +15,7 @@ public class Character {
     private boolean itemQuest;
     private List<Item> itemList = new ArrayList<>();
     private MiniGame miniGame;
-
+    
     /**
      * Constructs a character with the specified name and description.
      *
@@ -26,6 +26,7 @@ public class Character {
         setName(name);
         setDescription(description);
         itemQuest = false;
+        this.miniGame = new MiniGame();
     }
     
     /**
@@ -209,6 +210,6 @@ public class Character {
     }
     
     public MiniGame getMiniGame(){
-        return null;
+        return this.miniGame;
     }
 }

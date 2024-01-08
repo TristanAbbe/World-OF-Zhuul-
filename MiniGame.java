@@ -12,12 +12,13 @@ public class MiniGame
 {
     // variables d'instance - remplacez l'exemple qui suit par le vôtre
     boolean aliceWonTwins = false;
+    private int a;
     /**
      * Constructeur d'objets de classe MiniGame
      */
     public MiniGame()
     {
-        
+        a=1;
     }
     
     public boolean getAliceWonTwins(){
@@ -31,7 +32,7 @@ public class MiniGame
      */
     public int diceGame()
     {
-        JOptionPane.showMessageDialog(null,"Welcome to the dice game !");
+        //JOptionPane.showMessageDialog(null,"Welcome to the dice game !");
         int player1Roll = rollDice();
         return player1Roll;
     }
