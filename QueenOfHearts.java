@@ -3,8 +3,8 @@
  * The QueenOfHearts class is a subclass of the Character class and inherits its properties and methods.
  * It introduces a customized constructor to set the name and description of the Queen of Hearts character.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Groupe 01)
+ * @version (08/01/2024)
  */
 public class QueenOfHearts extends Character {
 
