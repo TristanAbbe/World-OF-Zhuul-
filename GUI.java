@@ -309,7 +309,7 @@ public class GUI {
      */
     private void action() {
         System.out.println("room: " + game.getCurrentRoom().getName());
-        
+        List<Character> charactersList = game.getCurrentRoom().getCharacterList();
         switch (game.getCurrentRoom().getNumberRoom()) {
             case 8:
                 game.trade(game.getCurrentRoom(),game.getAlice(),"Doubiprane");
@@ -346,7 +346,7 @@ public class GUI {
                 
                 break;
             case 15:
-                List<Character> charactersList = game.getCurrentRoom().getCharacterList();
+                //List<Character> charactersList = game.getCurrentRoom().getCharacterList();
                 int dice1 = game.getCurrentRoom().getCharacter(charactersList).getMiniGame().diceGame();
                 appendDialogue(dice1 + "resultat dice 1");
                 int dice2 = game.getCurrentRoom().getCharacter(charactersList).getMiniGame().diceGame();
@@ -355,9 +355,69 @@ public class GUI {
             case 22 :
                 appendDialogue("* Alice gives a look around *");
                 parler();
+                try {
+                    Thread.sleep(10000);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+                appendDialogue("Game starts in 3...\n");
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+                appendDialogue("2...\n");
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+                appendDialogue("1...\n");
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+                appendDialogue("GO !!!!\n");
                 
-                int score = MiniGame.countEvent(); //////// Ca ne se lance pas
-                appendDialogue("You scored: "+score+"]");
+                
+                int[] compteur = {0};
+                boolean win = false;
+                JFrame buttonFrame = new JFrame("THUMBS WAR !!!");
+                buttonFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                JButton bouton = new JButton("Click fast on me");
+                buttonFrame.add(bouton);
+                buttonFrame.pack();
+                buttonFrame.setVisible(true);
+                bouton.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        compteur[0]++;
+                    }
+                });
+                Timer timer = new Timer(10000, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    buttonFrame.setVisible(false);
+                    buttonFrame.dispose();
+                    System.out.println("Nombre de clics sur le bouton en 10 secondes : " + compteur[0]);
+                    // if (compteur[0]>50){
+                        // win = true;
+                    // }
+                }
+                });
+                timer.setRepeats(false);
+                timer.start();
+                try {
+                    Thread.sleep(10000);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+                
+                //int[] score = game.getCurrentRoom().getCharacter(charactersList).getMiniGame().thumbsWar2();
+                System.out.println("Balise Germain");
+                //int score = MiniGame.countEvent(); //////// Ca ne se lance pas
+                appendDialogue("You scored: "+compteur[0]+"]");
                 break; 
             default:
                 System.out.println("Balise 1");
@@ -392,10 +452,10 @@ public class GUI {
             // Display the dialogue in the dialogueTextArea
             appendDialogue(dialogue);
         }
-        updateHungerProgressBar();
-        updateRoomInfo();
-        updateRoomImage();
-        updateInventoryLabel();
+        // updateHungerProgressBar();
+        // updateRoomInfo();
+        // updateRoomImage();
+        // updateInventoryLabel();
     }
 
     /**
