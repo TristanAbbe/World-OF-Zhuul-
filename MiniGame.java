@@ -29,16 +29,14 @@ public class MiniGame
      *values of dice are random - Alice chooses the rules, she needs to lose to win the game
      *
      */
-    public void diceGame ()
+    public int diceGame()
     {
         JOptionPane.showMessageDialog(null,"Welcome to the dice game !");
-        
         int player1Roll = rollDice();
-        int player2Roll = rollDice();
-        
+        return player1Roll;
     }
     
-    public static int rollDice() {
+    public int rollDice() {
         Random random = new Random();
         return random.nextInt(6) + 1; // Generates a random number between 1 and 6
     }

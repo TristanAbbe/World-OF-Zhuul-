@@ -346,7 +346,8 @@ public class GUI {
                 
                 break;
             case 15:
-                
+                List<Character> charactersList = game.getCurrentRoom().getCharacterList();
+                int dice1 = game.getCurrentRoom().getCharacter(charactersList).getMiniGame().diceGame();
                 break;
             case 22 :
                 appendDialogue("* Alice gives a look around *");
