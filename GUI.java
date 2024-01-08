@@ -207,7 +207,7 @@ public class GUI {
         JButton moveDownButton = new JButton("South");
         JButton moveRightButton = new JButton("East");
 
-        JButton emptyButton4 = new JButton();
+        JButton menuButton = new JButton("Menu");
         JButton emptyButton5 = new JButton();
 
         southWestPanel.add(actionButton);
@@ -216,15 +216,49 @@ public class GUI {
         southWestPanel.add(moveLeftButton);
         southWestPanel.add(exitButton);
         southWestPanel.add(moveRightButton);
-        southWestPanel.add(emptyButton4);
+        southWestPanel.add(menuButton);
         southWestPanel.add(moveDownButton);
         southWestPanel.add(emptyButton5);
 
         addActionListeners(moveLeftButton, moveUpButton, moveDownButton, moveRightButton, actionButton, parlerButton, exitButton);
-
+        
+        menuButton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                showMenu();
+            }
+            
+        });
+        
         return southWestPanel;
     }
 
+    private void showMenu(){
+        JFrame menuFrame = new JFrame("Menu");
+        menuFrame.setSize(200,150);
+        menuFrame.setLocationRelativeTo(null);
+        JButton quitButton = new JButton("Quitter le jeu");
+        JButton continueButton = new JButton("Continuer");
+        quitButton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                System.exit(0);
+            }
+        });
+        continueButton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                menuFrame.dispose();
+            }
+        });
+        JPanel menuPanel = new JPanel(new GridLayout(2, 1));
+        menuPanel.add(quitButton);
+        menuPanel.add(continueButton);
+        menuFrame.add(menuPanel);
+        menuFrame.setVisible(true);
+    }
+    
+    
     /**
      * Adds action listeners to specified buttons.
      *
