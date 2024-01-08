@@ -20,8 +20,12 @@ public class Twins extends Character {
         super("Twins TweedleDee and TweedleDum", "Hi! We are the twins TweedleDee and TweedleDum");
         Item taco = new Taco();
         addItem(taco);
+        MiniGame miniGame = new MiniGame();
     }
-
+    
+    public MiniGame getMiniGame(){
+        return miniGame;
+    }
     /**
      * Overrides the dialogue method from the parent class to provide a specific dialogue for the Twins.
      *
