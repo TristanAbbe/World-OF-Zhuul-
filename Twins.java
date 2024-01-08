@@ -3,8 +3,8 @@
  * The Twins class is a subclass of the Character class and inherits its properties and methods.
  * It introduces additional features such as a mini-game and a specific item (Taco).
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Groupe 01)
+ * @version (08/01/2024)
  */
 public class Twins extends Character {
     private MiniGame miniGame;

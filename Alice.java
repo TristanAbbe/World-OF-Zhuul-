@@ -9,8 +9,8 @@ import java.util.List;
  * and handling Alice's hunger and potential death in the game.
  * It also initializes Alice with a default inventory containing a LilDrink item.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (groupe 01)
+ * @version (08/01/2024)
  */
 public class Alice {
 
