@@ -10,7 +10,9 @@ public class QueenOfHearts extends Character {
 
     // Instance variable for the Queen of Hearts
     private LiltleDrink lilDrink;
+    private MiniGame miniGame;
 
+    
     /**
      * Constructs the Queen of Hearts character.
      * Initializes Queen of Hearts with the name "Queen of Hearts" and a default description.
@@ -20,8 +22,14 @@ public class QueenOfHearts extends Character {
         super("Queen of Hearts", "Respect me, I am the Queen of Hearts");
         Item LiltleDrink = new LiltleDrink();
         addItem(lilDrink);
+        MiniGame miniGame = new MiniGame();
     }
 
+    @Override
+    public MiniGame getMiniGame(){
+        return miniGame;
+    }
+    
     /**
      * Overrides the dialogue method to provide a specific dialogue for the Queen of Hearts.
      * @return The dialogue message specific to the Queen of Hearts.

@@ -14,6 +14,7 @@ public class Character {
     private int state;
     private boolean itemQuest;
     private List<Item> itemList = new ArrayList<>();
+    private MiniGame miniGame;
 
     /**
      * Constructs a character with the specified name and description.
@@ -204,6 +205,10 @@ public class Character {
      * @return The dialogue of the character.
      */
     public String dialogue() {
+        return null;
+    }
+    
+    public MiniGame getMiniGame(){
         return null;
     }
 }
