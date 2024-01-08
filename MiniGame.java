@@ -77,8 +77,7 @@ public class MiniGame
             return "Twins";
         }
     }
-    
-    
+       
     public static int countEvent(){
         Scanner scanner = new Scanner(System.in);
         long startTime = System.currentTimeMillis();
