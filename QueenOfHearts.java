@@ -42,7 +42,7 @@ public class QueenOfHearts extends Character {
             "Take your choice!\n"+
             "- I choose to go, my Queen.\n"+
             "- Fair enough! But to do so, you have to win a game against my magnificence or else…\n"+
-            "OFF WITH YOUR HEAD! Do you accept my dice game ?";
+            "You'll be quoicoubeheaded! Do you accept my dice game ?";
         }
         else{   
             message = "- It takes all the running you can do, to keep in the same place.\n"+
