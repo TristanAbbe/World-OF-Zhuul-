@@ -502,7 +502,7 @@ public class GUI {
         
         
         if (nextRoom == null) {
-            JOptionPane.showMessageDialog(null, "Il n'y a pas de chambre dans cette direction !");
+            JOptionPane.showMessageDialog(null, "There is no exit in this direction !");
         }else {
             game.movePlayer(direction);
             
