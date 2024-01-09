@@ -30,6 +30,27 @@ public class QueenOfHearts extends Character {
     @Override
     public String dialogue() {
         String message = "oui"; // Modify the dialogue as needed
+        
+        switch (getState()) {
+            case 0:
+                message = "-  - WHAT IS THIS SMALL-HEAD LADY DOING IN MY CASTLE ?!? CARDS ! CARDS !?\n"+
+                "Where are my body-cards when I need them ? Still playing a guardgame I suppose…\n"+
+                "What a bunch of useless papers…\n"+
+                "- Excuse me my Queen, my name is Alice and I got lost in this strange world.\n"+
+                "-This world isn’t strange, you are! This is MY realm and you aren’t supposed to be here !\n"+
+                "OFF WITH HER HEAD NOW!!\n"+
+                "- No, please don’t cut my head, I am harmless.\n"+
+                "- Now, I give you fair warning, either you or your head must be off, and that in about half no time!\n"+
+                "Take your choice!\n"+
+                "- I choose to go, my Queen.\n"+
+                "- Fair enough! But to do so, you have to win a game against my magnificence or else…\n"+
+                "OFF WITH YOUR HEAD! Do you accept my dice game ?";
+            break;
+            default:
+                message = "- It takes all the running you can do, to keep in the same place.\n"+
+                "If you want to get somewhere else, you must run at least twice as fast as that!\n";
+            break;
+        }
         return message;
     }
 }
