@@ -33,7 +33,7 @@ public class QueenOfHearts extends Character {
         
         switch (getState()) {
             case 0:
-                message = "-  - WHAT IS THIS SMALL-HEAD LADY DOING IN MY CASTLE ?!? CARDS ! CARDS !?\n"+
+                message = "- WHAT IS THIS SMALL-HEAD LADY DOING IN MY CASTLE ?!? CARDS ! CARDS !?\n"+
                 "Where are my body-cards when I need them ? Still playing a guardgame I suppose…\n"+
                 "What a bunch of useless papers…\n"+
                 "- Excuse me my Queen, my name is Alice and I got lost in this strange world.\n"+
