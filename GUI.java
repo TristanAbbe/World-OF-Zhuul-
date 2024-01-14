@@ -348,9 +348,10 @@ public class GUI {
             case 15:
                 List<Character> charactersList = game.getCurrentRoom().getCharacterList();
                 int dice1 = game.getCurrentRoom().getCharacter(charactersList).getMiniGame().diceGame();
-                appendDialogue(dice1 + "resultat dice 1");
+                appendDialogue("Result dice Heart of Queen = " + dice1);
                 int dice2 = game.getCurrentRoom().getCharacter(charactersList).getMiniGame().diceGame();
-                System.out.println(dice2 + "resultat dice 2");
+                appendDialogue("Result dice Alice = " + dice2);
+                appendDialogue("Who won? Alice or the queen?");
                 break;
             case 22 :
                 appendDialogue("* Alice gives a look around *");
