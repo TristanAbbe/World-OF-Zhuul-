@@ -46,14 +46,10 @@ public class Twins extends Character {
                 "- For that we have the solution ! Always in possession of a snack on us.\n Will you play for it ? Would you like to play 'hide-and-seek' ?\n"+
                 " Or 'button, button, who's got the button' ?\n Or a classical thumbs war ?\n"+
                 "- Let's go for a thumbs war!"+
-                "- Wonderful ! To play this game, press your spacebar as many times as possible during 5 seconds.\n"+
-                "[Timer starts in 3...]\n"+
-                //TimeUnit.SECONDS.sleep(1);
-                "[2...]\n"+
-                //TimeUnit.SECONDS.sleep(1);
-                "[1...]\n"+
-                //TimeUnit.SECONDS.sleep(1);
-                "[GO !!]\n";
+                "- Wonderful ! To play this game, press your spacebar as many times as possible during 5 seconds.\n";
+                
+                
+                
                 break;
             case 1:
                 message = "- Oh... It seems you've won... We're glad for you and we must now give what we promised.\n";

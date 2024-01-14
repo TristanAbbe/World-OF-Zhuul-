@@ -2,6 +2,12 @@ import java.util.Random;
 import javax.swing.JOptionPane;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
 /**
  * Décrivez votre classe MiniGame ici.
  *
@@ -89,5 +95,44 @@ public class MiniGame
             }
         }
         return countEspace;
+    }
+    
+    public int[] thumbsWar2() {
+        int[] compteur = {0};
+        JFrame buttonFrame = new JFrame("THUMBS WAR !!!");
+        buttonFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JButton bouton = new JButton("Click fast on me");
+        
+
+        buttonFrame.add(bouton);
+        buttonFrame.pack();
+        buttonFrame.setVisible(true);
+        
+                
+        bouton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                compteur[0]++;
+            }
+        });
+
+        Timer timer = new Timer(10000, new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            buttonFrame.setVisible(false);
+            buttonFrame.dispose();
+            System.out.println("Nombre de clics sur le bouton en 10 secondes : " + compteur[0]);
+            }
+        });
+        timer.setRepeats(false);
+        timer.start();
+
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+        return compteur;
     }
 }
