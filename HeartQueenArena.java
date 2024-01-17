@@ -13,7 +13,7 @@ import java.util.*;
  */
 public class HeartQueenArena extends Room {
     private QueenOfHearts queen;
-    
+    private LittleDrink littleDrink;
     /**
      * Constructor for objects of the HeartQueenArena class.
      * Initializes the HeartQueenArena with a specific description, name, and icon path.
@@ -27,5 +27,7 @@ public class HeartQueenArena extends Room {
 
         Character queen = new QueenOfHearts();
         ajouterPersonnage(queen);
+        Item liltleDrink = new LittleDrink();
+        addItem(liltleDrink);
     }
 }

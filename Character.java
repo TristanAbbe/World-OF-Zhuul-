@@ -93,7 +93,7 @@ public class Character {
     private Item createItemName(String itemName) {
         switch (itemName.toLowerCase()) {
             case "liltle drink":
-                return new LiltleDrink();
+                return new LittleDrink();
             case "grasnolax":
                 return new Grasnolax();
             case "doubiprane":

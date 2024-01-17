@@ -56,6 +56,11 @@ public class AliceInWonderlandGame extends JFrame {
         Room heartQueenArena = new HeartQueenArena();
         Room roomDeath = new RoomDeath();
         Room winRoom = new WinRoom();
+        Room roomDeathBodyCard = new RoomDeathBodyCard();
+        Room roomDeathStarvation = new RoomDeathStarvation();
+        Room roomDeathBurried = new RoomDeathBurried();
+        Room roomDeathDrown = new RoomDeathDrown();
+        Room roomDeathHeadless = new RoomDeathHeadless();
         
         //set the exits 
         humidHut.setExit("South", catwalk);
@@ -150,9 +155,14 @@ public class AliceInWonderlandGame extends JFrame {
         roomsMap.put("BodyCardGarden", bodyCardGarden);
         roomsMap.put("HeartQueenArena", heartQueenArena);
         roomsMap.put("RoomDeath",roomDeath);
+        roomsMap.put("RoomDeathBodyCard", roomDeathBodyCard);
+        roomsMap.put("RoomDeathStarvation", roomDeathStarvation);
+        roomsMap.put("RoomDeathBurried", roomDeathBurried);
+        roomsMap.put("RoomDeathDrown", roomDeathDrown);
+        roomsMap.put("RoomDeathHeadless", roomDeathHeadless);
         roomsMap.put("winRoom",winRoom);
         
-        setCurrentRoom(heartQueenArena);
+        setCurrentRoom(humidHut);
     }
 
     /**
@@ -208,21 +218,21 @@ public class AliceInWonderlandGame extends JFrame {
         return currentRoom.getPath();
     }
     
-        public void trade(Room currentRoom, Alice alice, String item){
+    public void trade(Room currentRoom, Alice alice, String item){
         
         List<Character> charactersList = currentRoom.getCharacterList();
-        
+        System.out.println(currentRoom.getName());
         if (!charactersList.isEmpty()){
             Character temporaryCharacter = charactersList.get(0);
             if (!temporaryCharacter.getItemQuest()){
-                String characterName = currentRoom.getCharacter(charactersList).getName();
+                String characterName = currentRoom.getCharacter().getName();
                 if (temporaryCharacter.getName() == characterName){
                     String itemName = item;
                     if (alice.hasItem(itemName)){
-                        String recievedItem = currentRoom.getCharacter(charactersList).getItem().getName();
+                        String recievedItem = currentRoom.getCharacter().getItem().getName();
                         alice.removeItem(itemName);
-                        currentRoom.getCharacter(charactersList).addItemSpe(itemName);
-                        currentRoom.getCharacter(charactersList).setItemQuest(true);
+                        currentRoom.getCharacter().addItemSpe(itemName);
+                        currentRoom.getCharacter().setItemQuest(true);
                         alice.addItem(recievedItem);
                         if (recievedItem.equals("Helmet")){
                             alice.setHaveHelmet(true);
@@ -230,6 +240,7 @@ public class AliceInWonderlandGame extends JFrame {
                     }
                 }   
             }
+            
         }
         else if (currentRoom.getName()== "Fancy Pharmacy"){
             if (!alice.hasItem(currentRoom.getItem().getName())){
@@ -241,7 +252,14 @@ public class AliceInWonderlandGame extends JFrame {
                 alice.addItem(currentRoom.getItem().getName());
             }
         }
+        
+        if(currentRoom.getName() == "Queen of Hearts' Arena"){
+            if (!alice.hasItem(currentRoom.getItem().getName())){
+                alice.addItem(currentRoom.getItem().getName());
+            }
+        }
     }
+    
     
     public void flushToilet(JoylessToilets toilette){
         if (toilette.getCountFlushRoyal() < 5) {
@@ -260,26 +278,34 @@ public class AliceInWonderlandGame extends JFrame {
 
     if (!death) {
         if (nextRoom == null) {
-            JOptionPane.showMessageDialog(null, "Il n'y a pas de chambre dans cette direction !");
+            JOptionPane.showMessageDialog(null, "There is no Room  !");
         } else {
             boolean canMove = false;
 
             // Check if Alice is in a special room with conditions
             if (nextRoom.getName().equals("Queen of Hearts' Arena")) {
-                canMove = alice.getHaveHelmet();System.out.println("gajo ");
-            } else if (nextRoom.getName().equals("Beaver River")) {
-                canMove = alice.getHeight() == 1;System.out.println("gaji: " );
+                canMove = alice.getHaveHelmet();
+            } else if (nextRoom.getName().equals("Beaver River")&& alice.getHeight() == 0) {
+                if (alice.hasItem("Grasnolax")){
+                    alice.setHeight(1);
+                    alice.removeItem("Grasnolax");
+                    canMove = alice.getHeight() == 1;
+                }   
             } else if (nextRoom.getName().equals("Bunny Lobby")) {
-                canMove = alice.getHeight() == 0;System.out.println("gaja: ");
+                if (alice.hasItem("LittleDrink")){
+                    alice.setHeight(0);
+                    alice.removeItem("LittleDrink");
+                    canMove = alice.getHeight() == 0;
+                }
             } else {
-                canMove = true;System.out.println("goja: ");
+                canMove = true;
             }
 
             if (canMove) {
                 setCurrentRoom(nextRoom);
                 alice.decreaseHunger(1);
             } else {
-                System.out.println("Player died. Reason: " + getDeathReason(nextRoom));
+                System.out.println("you died. Reason: " + getDeathReason(nextRoom) + " " + nextRoom.getName());
                 alice.setDeath(true);
             }
         }
@@ -290,13 +316,13 @@ public class AliceInWonderlandGame extends JFrame {
 }
 
 
-private String getDeathReason(Room nextRoom) {
-    if (nextRoom.getName().equals("QuuensGarden") && !alice.getHaveHelmet()) {
-        return "Missing Helmet";
-    } else if (nextRoom.getName().equals("BeaverRiver") && alice.getHeight() != 1) {
-        return "Incorrect Height";
-    } else if (nextRoom.getName().equals("BunnyLobby") && alice.getHeight() != 0) {
-        return "Incorrect Height";
+public String getDeathReason(Room nextRoom) {
+    if (nextRoom.getName().equals("Queen of Hearts' Arena")) {
+        return "RoomDeathBodyCard";
+    } else if (nextRoom.getName().equals("Beaver River") && alice.getHeight() != 1) {
+        return "RoomDeathDrown";
+    } else if (nextRoom.getName().equals("Bunny Lobby") && alice.getHeight() != 0) {
+        return "RoomDeathBurried";
     } else {
         return "Unknown Reason";
     }
