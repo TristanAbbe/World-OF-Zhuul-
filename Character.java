@@ -79,7 +79,7 @@ public class Character {
      * Adds an item to Alice's inventory based on its name.
      * @param itemName The name of the item to add to Alice's inventory.
      */
-    public void addItem(String itemName) {
+    public void addItemSpe(String itemName) {
         
         try {
             Item newItem = createItemName(itemName);

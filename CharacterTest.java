@@ -5,10 +5,10 @@ public class CharacterTest {
 
     @Test
     public void testCharacterCreation() {
-        Character myCharacter = new Character("John Doe", "A brave adventurer.");
-
-        assertEquals("John Doe", myCharacter.getName());
-        assertEquals("A brave adventurer.", myCharacter.getDescription());
+        Character myCharacter = new Character("Example Character", "This is an example character.");
+        assertEquals("Example Character", myCharacter.getName());
+        assertEquals("This is an example character.", myCharacter.getDescription());
+        assertFalse(myCharacter.getItemQuest());
     }
 
     @Test
@@ -60,11 +60,21 @@ public class CharacterTest {
     }
 
     @Test
-    public void testDialogue() {
-        // Since the dialogue method is empty, we can just test that it doesn't throw an exception
-        Character myCharacter = new Character("John Doe", "A brave adventurer.");
+    public void testAddItem() {
+        Character myCharacter = new Character("Example Character", "This is an example character.");
+        assertFalse(myCharacter.hasItem("Example Item"));
 
-        // Call the dialogue method
-        myCharacter.dialogue();
+        myCharacter.addItemSpe("Example Item");
+        assertTrue(myCharacter.hasItem("Example Item"));
+    }
+
+    @Test
+    public void testRemoveItem() {
+        Character myCharacter = new Character("Example Character", "This is an example character.");
+        myCharacter.addItemSpe("Example Item");
+
+        assertTrue(myCharacter.hasItem("Example Item"));
+        myCharacter.removeItem("Example Item");
+        assertFalse(myCharacter.hasItem("Example Item"));
     }
 }

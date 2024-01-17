@@ -16,12 +16,12 @@ public class Alice {
 
     // Instance variables for Alice
     private List<Item> inventory;
-    private String name;
+    private final String name;
     private Room room;
     private int hunger = 100;
     private boolean death = false;
     private String path;
-    private boolean haveHelmet = true; //remettre a false
+    private boolean haveHelmet = false; //remettre a false
     private int Height = 1;
     /**
      * Constructs the Alice character.
@@ -29,7 +29,7 @@ public class Alice {
      * an empty inventory, and a LilDrink item in the inventory.
      */
     public Alice() {
-        setName("Alice");
+        name = "Alice";
         path = "ImagesAlice/Alice.png";
         this.inventory = new ArrayList<>();
     }
@@ -50,13 +50,6 @@ public class Alice {
         return room;
     }
 
-    /**
-     * Sets the name of Alice.
-     * @param nom The name to set for Alice.
-     */
-    public void setName(String nom) {
-        name = nom;
-    }
 
     /**
      * Gets the name of Alice.

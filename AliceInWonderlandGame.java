@@ -221,7 +221,7 @@ public class AliceInWonderlandGame extends JFrame {
                     if (alice.hasItem(itemName)){
                         String recievedItem = currentRoom.getCharacter(charactersList).getItem().getName();
                         alice.removeItem(itemName);
-                        currentRoom.getCharacter(charactersList).addItem(itemName);
+                        currentRoom.getCharacter(charactersList).addItemSpe(itemName);
                         currentRoom.getCharacter(charactersList).setItemQuest(true);
                         alice.addItem(recievedItem);
                         if (recievedItem.equals("Helmet")){
