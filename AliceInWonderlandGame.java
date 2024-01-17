@@ -152,7 +152,7 @@ public class AliceInWonderlandGame extends JFrame {
         roomsMap.put("RoomDeath",roomDeath);
         roomsMap.put("winRoom",winRoom);
         
-        setCurrentRoom(humidHut);
+        setCurrentRoom(heartQueenArena);
     }
 
     /**
