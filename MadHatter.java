@@ -8,7 +8,6 @@
  */
 public class MadHatter extends Character {
     private Helmet helmet;
-
     /**
      * Constructs the Mad Hatter character.
      * Initializes Mad Hatter with the name "MadHatter" and a default description.
@@ -48,5 +47,6 @@ public class MadHatter extends Character {
         }
 
         return message;
-    }    
+    }
+    
 }

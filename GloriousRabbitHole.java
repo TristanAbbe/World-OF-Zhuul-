@@ -13,7 +13,7 @@ import java.util.*;
  */
 public class GloriousRabbitHole extends Room {
     private MarchHare rabbit;
-    
+    private int counterHit; 
     /**
      * Constructor for objects of the GloriousRabbitHole class.
      * Initializes the GloriousRabbitHole with a specific description, name, and icon path.
@@ -26,5 +26,13 @@ public class GloriousRabbitHole extends Room {
 
         Character rabbit = new MarchHare();
         ajouterPersonnage(rabbit);
+    }
+    
+        public void setHit(){
+        this.counterHit++;
+    }
+    
+    public int getHit(){
+        return counterHit;
     }
 }

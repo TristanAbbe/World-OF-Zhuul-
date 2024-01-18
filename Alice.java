@@ -21,7 +21,7 @@ public class Alice {
     private int hunger = 100;
     private boolean death = false;
     private String path;
-    private boolean haveHelmet = true; //remettre a false
+    private boolean haveHelmet = false; //remettre a false
     private int Height = 1;
     /**
      * Constructs the Alice character.
