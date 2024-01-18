@@ -360,6 +360,7 @@ public class GUI {
                 if (result == JOptionPane.YES_OPTION) {
                     appendDialogue("Alice won");
                     //Alice meurt
+                    game.getAlice().setDeath(true);
                     }
                 else
                     {
