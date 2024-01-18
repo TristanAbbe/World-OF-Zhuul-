@@ -259,6 +259,12 @@ public class AliceInWonderlandGame extends JFrame {
                 alice.addItem(currentRoom.getItem().getName());
             }
         }
+        
+        if (currentRoom.getName() == "Twins' Bin Den"){
+            if (!alice.hasItem(currentRoom.getItem().getName())){
+                alice.addItem(currentRoom.getItem().getName());
+            }
+        }
     }
     
     public void hit(GloriousRabbitHole hole){

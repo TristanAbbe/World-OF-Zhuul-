@@ -316,18 +316,22 @@ public class GUI {
             case 8:
                 game.trade(game.getCurrentRoom(),game.getAlice(),"Doubiprane");
                 game.getAlice().displayInventory();
+                appendDialogue("You exchange the doubiprane for a silkthreads \n");
                 break;
             case 5:
                 game.trade(game.getCurrentRoom(),game.getAlice(),"");
                 game.getAlice().displayInventory();
+                appendDialogue("You get a Doubiprane \n");
                 break;
             case 11:
                 game.trade(game.getCurrentRoom(),game.getAlice(),"Silkthread");
                 game.getAlice().displayInventory();
+                appendDialogue("You exchange the silkthread for a Helmet \n");
                 break;
             case 18:
                 game.trade(game.getCurrentRoom(),game.getAlice(),"");
                 game.getAlice().displayInventory();
+                appendDialogue("You get a Granolax \n");
                 break;
             case 19:
                 if (game.getCurrentRoom() instanceof GloriousRabbitHole){
@@ -344,6 +348,7 @@ public class GUI {
                 if (game.getCurrentRoom() instanceof JoylessToilets) {
                     JoylessToilets toilette = (JoylessToilets) game.getCurrentRoom();
                     game.flushToilet(toilette);
+                    appendDialogue("BLBLBLBLBLBLBLBLBLBLBL\n");
                     if (toilette.getCountFlushRoyal() >= 5) {
                         victory = true ; 
                         System.out.println("1" + toilette.getCountFlushRoyal());

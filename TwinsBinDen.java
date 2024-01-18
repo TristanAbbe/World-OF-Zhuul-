@@ -13,7 +13,7 @@ import java.util.*;
  */
 public class TwinsBinDen extends Room {
     private Twins twins;
-    
+    private Taco taco;
     /**
      * Constructor for objects of the TwinsBinDen class.
      * Initializes the TwinsBinDen with a specific description, name, and icon path.
@@ -25,6 +25,8 @@ public class TwinsBinDen extends Room {
 
         twins = new Twins();
         ajouterPersonnage(twins);
+        Item taco = new Taco();
+        addItem(taco);
     }
 
 }

@@ -247,6 +247,7 @@ public class Alice {
     public String feed() {
         if (this.hasItem("taco")) {
         setHunger(100);
+        removeItem("taco");
         return "Alice eat very well";
         }else 
         return "you have no taco to eat ";

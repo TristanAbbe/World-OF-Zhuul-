@@ -28,7 +28,7 @@ public class CheshireCat extends Character {
     @Override
     public String dialogue() {
         String message = "";
-
+        
         // Different dialogues based on the state
         switch (getState()) {
             case 1:

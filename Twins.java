@@ -18,8 +18,6 @@ public class Twins extends Character {
      */
     public Twins() {
         super("Twins TweedleDee and TweedleDum", "Hi! We are the twins TweedleDee and TweedleDum");
-        Item taco = new Taco();
-        addItem(taco);
         MiniGame miniGame = new MiniGame();
     }
     
@@ -64,7 +62,8 @@ public class Twins extends Character {
                 " How do you do and shake hands, state your name and business.\n";
                 break;
         }
-
+        int x = getState()+1;
+        setState(x);
         return message;
     }
 }
