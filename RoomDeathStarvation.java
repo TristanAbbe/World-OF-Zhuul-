@@ -10,7 +10,7 @@ public class RoomDeathStarvation extends Room
 
     public RoomDeathStarvation(){
     
-        super("This is the end youre are dead", "The END Starvation","ImagesAliceRedimmensionnées/Mort_Partie_perdue_Affamée.png",30);
+        super("This is the end you are dead", "The END, you starved to death","ImagesAliceRedimmensionnées/Mort_Partie_perdue_Affamée.png",30);
     }
 
 }

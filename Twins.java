@@ -43,22 +43,21 @@ public class Twins extends Character {
                 "- If you think we're waxworks, you ought to pay you know.\n"+
                 "- Contrariwise, if you think we're alive, you ought to speak to us.\n"+
                 "- Oh sorry, I am called Alice and I am trying to find my way out of here.\n It's almost tea time and I am beginning to be hungry.\n"+
-                "- For that we have the solution ! Always in possession of a snack on us.\n Will you play for it ? Would you like to play 'hide-and-seek' ?\n"+
+                "- For that we have the solution ! Always in possession of a snack on us.\n Would you like to play 'hide-and-seek' ?\n"+
                 " Or 'button, button, who's got the button' ?\n Or a classical thumbs war ?\n"+
-                "- Let's go for a thumbs war!"+
-                "- Wonderful ! To play this game, press your spacebar as many times as possible during 5 seconds.\n";
-                
-                
-                
+                "- I would just like to eat.."+
+                "- Oh... We are a bit disappointed in you, Alice... Here is your taco anyway. Come back to play with us if you have time";
                 break;
             case 1:
-                message = "- Oh... It seems you've won... We're glad for you and we must now give what we promised.\n";
+                message = "- Oh... You again ! Do you want to play now ?\n"+
+                "- Once again, I would just need the snack please\n"+
+                "- You are very annoying Alice, but here is your taco...";
                 //Give the doubiprane
                 
                 //+"I am good, I don't have a headache anymore.";
                 break;
             case 2:
-                message = "- Hope you appreciate it, it should give you enough energy to leave the place.\n";
+                message = "- Coming back for a taco we suppose ?\n";
                 break;
             default:
                 message = "*singing* - How do you do and shake hands, shake hands, shake hands.\n"+

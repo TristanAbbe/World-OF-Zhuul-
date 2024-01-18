@@ -333,9 +333,9 @@ public class GUI {
                 if (game.getCurrentRoom() instanceof GloriousRabbitHole){
                     GloriousRabbitHole hole = (GloriousRabbitHole) game.getCurrentRoom();
                     game.hit(hole);
-                    appendDialogue("OUCH OUCH");
+                    appendDialogue("OUCH OUCH\n");
                     if (hole.getHit() >= 5){
-                        appendDialogue("OKAY OKAY STOP IT !!!!! I tell you how to go out go in the joyless Toilett and flush it Five time");
+                        appendDialogue("OKAY OKAY STOP IT !!!!! I tell you how to go out go in the joyless Toilett and flush it Five times\n");
                     }
                 }
                 
@@ -359,93 +359,33 @@ public class GUI {
                 //Dice game
                 //List<Character> charactersList = game.getCurrentRoom().getCharacterList();
                 int dice1 = game.getCurrentRoom().getCharacter().getMiniGame().diceGame();
-                appendDialogue("Result dice Heart of Queen = " + dice1);
+                appendDialogue("Result dice Heart of Queen = " + dice1+"\n");
                 int dice2 = game.getCurrentRoom().getCharacter().getMiniGame().diceGame();
-                appendDialogue("Result dice Alice = " + dice2);
-                appendDialogue("Who won? Alice or the queen?");
+                appendDialogue("Result dice Alice = " + dice2+"\n");
+                appendDialogue("Who won? Alice or the queen?\n");
                 
                 Object[] options = {"Alice", "The queen"};
-                int result = JOptionPane.showOptionDialog(null,"Who won? Alice or the queen?","Choose Winner", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+                int result = JOptionPane.showOptionDialog(null,"Who won? Alice or the queen?\n","Choose Winner\n", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 
                 // Choice of victory between Alice and QueenofHeart
                 if (result == JOptionPane.YES_OPTION) {
-                    appendDialogue("Alice won");
+                    appendDialogue("Alice won !\n");
                     game.getAlice().setDeath(true);
                     game.setSpecificRoom("RoomDeathHeadless");
                     }
                 else
                     {
-                    appendDialogue("The queen won");
+                    appendDialogue("The queen won !\n");
                     game.trade(game.getCurrentRoom(),game.getAlice(),"LittleDrink");
                     game.getAlice().displayInventory();
                     }
                 break;
             case 22 :
-                appendDialogue("* Alice gives a look around *");
+                appendDialogue("* Alice gives a look around *\n");
                 parler();
-                try {
-                    Thread.sleep(10000);
-                } catch (InterruptedException ex) {
-                    ex.printStackTrace();
-                }
-                appendDialogue("Game starts in 3...\n");
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException ex) {
-                    ex.printStackTrace();
-                }
-                appendDialogue("2...\n");
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException ex) {
-                    ex.printStackTrace();
-                }
-                appendDialogue("1...\n");
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException ex) {
-                    ex.printStackTrace();
-                }
-                appendDialogue("GO !!!!\n");
-                
-                
-                int[] compteur = {0};
-                boolean win = false;
-                JFrame buttonFrame = new JFrame("THUMBS WAR !!!");
-                buttonFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                JButton bouton = new JButton("Click fast on me");
-                buttonFrame.add(bouton);
-                buttonFrame.pack();
-                buttonFrame.setVisible(true);
-                bouton.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        compteur[0]++;
-                    }
-                });
-                Timer timer = new Timer(10000, new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    buttonFrame.setVisible(false);
-                    buttonFrame.dispose();
-                    System.out.println("Nombre de clics sur le bouton en 10 secondes : " + compteur[0]);
-                    // if (compteur[0]>50){
-                        // win = true;
-                    // }
-                }
-                });
-                timer.setRepeats(false);
-                timer.start();
-                try {
-                    Thread.sleep(10000);
-                } catch (InterruptedException ex) {
-                    ex.printStackTrace();
-                }
-                
-                //int[] score = game.getCurrentRoom().getCharacter(charactersList).getMiniGame().thumbsWar2();
-                System.out.println("Balise Germain");
-                //int score = MiniGame.countEvent(); //////// Ca ne se lance pas
-                appendDialogue("You scored: "+compteur[0]+"]");
+                game.trade(game.getCurrentRoom(),game.getAlice(),"Taco");
+                game.getAlice().displayInventory();
+                appendDialogue("- Thank you guys !\n");
                 break; 
             default:
                 System.out.println("Balise 1");
@@ -476,7 +416,7 @@ public class GUI {
         System.out.println("character: " + game.getCurrentRoom().getCharacter().getName());
 
         if (charactersList.isEmpty()) {
-            appendDialogue("There is no one to speak with in this room.");
+            appendDialogue("There is no one to speak with in this room.\n");
         } else {
             // take the first character in the list
             Character characterToParler = charactersList.get(0);
@@ -506,10 +446,10 @@ public class GUI {
         if (!exits.isEmpty()) {
             // Display the exits in the dialogue area
             String exitsMessage = "You can go : " + String.join(", ", exits);
-            appendDialogue(exitsMessage);
+            appendDialogue(exitsMessage+"\n");
         } else {
             // If no exits, display a message
-            appendDialogue("There are no exits in this room.");
+            appendDialogue("There are no exits in this room.\n");
         }
     }
 
@@ -519,7 +459,7 @@ public class GUI {
      * @param dialogue The message to be appended to the dialogue text area.
      */
     private void appendDialogue(String dialogue) {
-        dialogueTextArea.append(dialogue + "\n");
+        dialogueTextArea.append(dialogue);
     }
 
     /**
@@ -537,7 +477,7 @@ public class GUI {
         
         
         if (nextRoom == null) {
-            JOptionPane.showMessageDialog(null, "There is no exit in this direction !");
+            JOptionPane.showMessageDialog(null, "There is no exit in this direction !\n");
         }else {
             game.movePlayer(direction);
             
