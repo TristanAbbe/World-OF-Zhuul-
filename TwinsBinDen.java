@@ -9,7 +9,7 @@ import java.util.*;
  * MAZURIE Jules, PERSONNE Germain, RIVIERE Jade.
  * 
  * @author ABBE Tristan, ANET Janelle, DELPIROU Corentin, MAZURIE Jules, PERSONNE Germain, RIVIERE Jade
- * @version 1.0 (Date: YYYY-MM-DD)
+ * @version 1.0
  */
 public class TwinsBinDen extends Room {
     private Twins twins;

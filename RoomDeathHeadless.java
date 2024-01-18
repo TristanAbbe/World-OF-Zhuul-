@@ -1,8 +1,9 @@
 /**
- * Décrivez votre classe roomDeath ici.
+ * The RoomDeathHeadless class represents a specific room in the Alice in Wonderland game,
+ * where the player encounters a tragic end state, Alice's decapitation.
  *
- * @author (votre nom)
- * @version (un numéro de version ou une date)
+ * @author ABBE Tristan, ANET Janelle, DELPIROU Corentin, MAZURIE Jules, PERSONNE Germain, RIVIERE Jade
+ * @version 1.0
  */
 public class RoomDeathHeadless extends Room
 {
