@@ -331,7 +331,7 @@ public class GUI {
                 if (game.getCurrentRoom() instanceof GloriousRabbitHole){
                     GloriousRabbitHole hole = (GloriousRabbitHole) game.getCurrentRoom();
                     game.hit(hole);
-                    
+                    appendDialogue("OUCH OUCH");
                     if (hole.getHit() >= 5){
                         appendDialogue("OKAY OKAY STOP IT !!!!! I tell you how to go out go in the joyless Toilett and flush it Five time");
                     }
