@@ -356,20 +356,17 @@ public class GUI {
                 Object[] options = {"Alice", "The queen"};
                 int result = JOptionPane.showOptionDialog(null,"Who won? Alice or the queen?","Choose Winner", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 
-                // Choix de la victoire entre Alice et QueenofHeart
+                // Choice of victory between Alice and QueenofHeart
                 if (result == JOptionPane.YES_OPTION) {
                     appendDialogue("Alice won");
                     game.getAlice().setDeath(true);
                     game.setSpecificRoom("RoomDeathHeadless");
-                    //Alice meurt
-                    game.getAlice().setDeath(true);
                     }
                 else
                     {
                     appendDialogue("The queen won");
                     game.trade(game.getCurrentRoom(),game.getAlice(),"LittleDrink");
                     game.getAlice().displayInventory();
-                    //Alice reste en vie
                     }
                 break;
             case 22 :

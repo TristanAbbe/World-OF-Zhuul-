@@ -11,8 +11,8 @@ import javax.swing.Timer;
 /**
  * Décrivez votre classe MiniGame ici.
  *
- * @author (votre nom)
- * @version (un numéro de version ou une date)
+ * @author ABBE Tristan, ANET Janelle, DELPIROU Corentin, MAZURIE Jules, PERSONNE Germain, RIVIERE Jade
+ * @version 1.0
  */
 public class MiniGame
 {

@@ -8,8 +8,8 @@ import java.util.List;
  * Manages the game state, including the current room, Alice's character, and game events.
  * Handles the initialization of the game world and provides methods for player movement and updates.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author ABBE Tristan, ANET Janelle, DELPIROU Corentin, MAZURIE Jules, PERSONNE Germain, RIVIERE Jade
+ * @version 1.0
  */
 public class AliceInWonderlandGame extends JFrame {
     private Room currentRoom;
