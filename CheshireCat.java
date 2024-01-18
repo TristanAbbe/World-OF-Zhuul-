@@ -116,7 +116,8 @@ public class CheshireCat extends Character {
                 }
                 return message;
         }
-
+        int x = getState()+1;
+        setState(x);
         return message;
     }
 }

@@ -61,7 +61,8 @@ public class Absolem extends Character {
                 message = "* Absolem seems deeply lost in his minds, only smoke comes out of his mouth *\n";
                 break;
         }
-
+        int x = getState()+1;
+        setState(x);
         return message;
     }
 

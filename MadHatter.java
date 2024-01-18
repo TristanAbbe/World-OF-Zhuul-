@@ -45,7 +45,8 @@ public class MadHatter extends Character {
                 message = "What can I hat for you ?";
                 break;
         }
-
+        int x = getState()+1;
+        setState(x);
         return message;
     }
     

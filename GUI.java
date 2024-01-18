@@ -363,6 +363,7 @@ public class GUI {
             case 15:
                 //Dice game
                 //List<Character> charactersList = game.getCurrentRoom().getCharacterList();
+                appendDialogue("Lets play the game \n");
                 int dice1 = game.getCurrentRoom().getCharacter().getMiniGame().diceGame();
                 appendDialogue("Result dice Heart of Queen = " + dice1+"\n");
                 int dice2 = game.getCurrentRoom().getCharacter().getMiniGame().diceGame();

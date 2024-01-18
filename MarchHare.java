@@ -52,7 +52,8 @@ public class MarchHare extends Character {
                 message = "I cant talk to you right now, I am in a hurry !\n";
                 break;
         }
-
+        int x = getState()+1;
+        setState(x);
         return message;
     }
     
