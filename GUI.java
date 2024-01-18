@@ -354,6 +354,7 @@ public class GUI {
                 
                 break;
             case 15:
+                //Dice game
                 //List<Character> charactersList = game.getCurrentRoom().getCharacterList();
                 int dice1 = game.getCurrentRoom().getCharacter().getMiniGame().diceGame();
                 appendDialogue("Result dice Heart of Queen = " + dice1);
