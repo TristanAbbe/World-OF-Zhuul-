@@ -4,7 +4,7 @@ import java.util.Scanner;
  * The MarchHare class is a subclass of the Character class and inherits its properties and methods.
  * It introduces a customized constructor to set the name and description of the March Hare character.
  *
- * @author (Groupe 01)
+ * @author ABBE Tristan, ANET Janelle, DELPIROU Corentin, MAZURIE Jules, PERSONNE Germain, RIVIERE Jade (Groupe 01)
  * @version (08/01/2024)
  */
 public class MarchHare extends Character {

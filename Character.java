@@ -5,8 +5,8 @@ import java.util.*;
  * Each character has a name, description, state, and an optional quest item.
  * Characters can hold a list of items and provide dialogues.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author ABBE Tristan, ANET Janelle, DELPIROU Corentin, MAZURIE Jules, PERSONNE Germain, RIVIERE Jade
+ * @version 1.0
  */
 public class Character {
     private String name;
