@@ -7,7 +7,7 @@ import java.util.Random;
  * The CheshireCat class is a subclass of the Character class and inherits its properties and methods.
  * It introduces additional features such as customized dialogues based on the character's state.
  *
- * @author (Groupe 01)
+ * @author ABBE Tristan, ANET Janelle, DELPIROU Corentin, MAZURIE Jules, PERSONNE Germain, RIVIERE Jade (Groupe 01)
  * @version (08/01/2024)
  */
 public class CheshireCat extends Character {

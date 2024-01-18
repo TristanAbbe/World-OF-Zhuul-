@@ -347,10 +347,27 @@ public class GUI {
                 break;
             case 15:
                 //List<Character> charactersList = game.getCurrentRoom().getCharacterList();
-                int dice1 = game.getCurrentRoom().getCharacter(charactersList).getMiniGame().diceGame();
-                appendDialogue(dice1 + "resultat dice 1");
-                int dice2 = game.getCurrentRoom().getCharacter(charactersList).getMiniGame().diceGame();
-                System.out.println(dice2 + "resultat dice 2");
+                int dice1 = game.getCurrentRoom().getCharacter().getMiniGame().diceGame();
+                appendDialogue("Result dice Heart of Queen = " + dice1);
+                int dice2 = game.getCurrentRoom().getCharacter().getMiniGame().diceGame();
+                appendDialogue("Result dice Alice = " + dice2);
+                appendDialogue("Who won? Alice or the queen?");
+                
+                Object[] options = {"Alice", "The queen"};
+                int result = JOptionPane.showOptionDialog(null,"Who won? Alice or the queen?","Choose Winner", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+
+                // Choice of victory between Alice and QueenofHeart
+                if (result == JOptionPane.YES_OPTION) {
+                    appendDialogue("Alice won");
+                    game.getAlice().setDeath(true);
+                    game.setSpecificRoom("RoomDeathHeadless");
+                    }
+                else
+                    {
+                    appendDialogue("The queen won");
+                    game.trade(game.getCurrentRoom(),game.getAlice(),"LittleDrink");
+                    game.getAlice().displayInventory();
+                    }
                 break;
             case 22 :
                 appendDialogue("* Alice gives a look around *");
@@ -438,7 +455,7 @@ public class GUI {
         List<Character> charactersList = game.getCurrentRoom().getCharacterList();
         // Check if the current room has characters
         System.out.println("room: " + game.getCurrentRoom().getName());
-        System.out.println("character: " + game.getCurrentRoom().getCharacter(charactersList).getName());
+        System.out.println("character: " + game.getCurrentRoom().getCharacter().getName());
 
         if (charactersList.isEmpty()) {
             appendDialogue("There is no one to speak with in this room.");
@@ -502,12 +519,12 @@ public class GUI {
         
         
         if (nextRoom == null) {
-            JOptionPane.showMessageDialog(null, "Il n'y a pas de chambre dans cette direction !");
+            JOptionPane.showMessageDialog(null, "There is no exit in this direction !");
         }else {
             game.movePlayer(direction);
             
             if (game.getAlice().getDeath()){
-                game.setSpecificRoom("RoomDeath");
+                game.setSpecificRoom(game.getDeathReason(nextRoom));
             }
             updateHungerProgressBar();
             updateRoomInfo();

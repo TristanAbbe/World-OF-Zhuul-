@@ -3,13 +3,10 @@
  * The QueenOfHearts class is a subclass of the Character class and inherits its properties and methods.
  * It introduces a customized constructor to set the name and description of the Queen of Hearts character.
  *
- * @author (Groupe 01)
+ * @author ABBE Tristan, ANET Janelle, DELPIROU Corentin, MAZURIE Jules, PERSONNE Germain, RIVIERE Jade (Groupe 01)
  * @version (08/01/2024)
  */
 public class QueenOfHearts extends Character {
-
-    // Instance variable for the Queen of Hearts
-    private LiltleDrink lilDrink;
 
     
     /**
@@ -19,8 +16,6 @@ public class QueenOfHearts extends Character {
      */
     public QueenOfHearts() {
         super("Queen of Hearts", "Respect me, I am the Queen of Hearts");
-        Item LiltleDrink = new LiltleDrink();
-        addItem(lilDrink);
     }
     
     /**

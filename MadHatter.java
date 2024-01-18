@@ -3,8 +3,8 @@
  * The MadHatter class is a subclass of the Character class and inherits its properties and methods.
  * It introduces additional features such as the Mad Hatter's unique item (Helmet).
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author ABBE Tristan, ANET Janelle, DELPIROU Corentin, MAZURIE Jules, PERSONNE Germain, RIVIERE Jade
+ * @version 1.0
  */
 public class MadHatter extends Character {
     private Helmet helmet;

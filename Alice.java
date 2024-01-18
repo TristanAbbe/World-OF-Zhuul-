@@ -9,14 +9,14 @@ import java.util.List;
  * and handling Alice's hunger and potential death in the game.
  * It also initializes Alice with a default inventory containing a LilDrink item.
  *
- * @author (groupe 01)
- * @version (08/01/2024)
+ * @author ABBE Tristan, ANET Janelle, DELPIROU Corentin, MAZURIE Jules, PERSONNE Germain, RIVIERE Jade
+ * @version 1.0 (08/01/2024)
  */
 public class Alice {
 
     // Instance variables for Alice
     private List<Item> inventory;
-    private String name;
+    private final String name;
     private Room room;
     private int hunger = 100;
     private boolean death = false;
@@ -29,7 +29,7 @@ public class Alice {
      * an empty inventory, and a LilDrink item in the inventory.
      */
     public Alice() {
-        setName("Alice");
+        name = "Alice";
         path = "ImagesAlice/Alice.png";
         this.inventory = new ArrayList<>();
     }
@@ -50,13 +50,6 @@ public class Alice {
         return room;
     }
 
-    /**
-     * Sets the name of Alice.
-     * @param nom The name to set for Alice.
-     */
-    public void setName(String nom) {
-        name = nom;
-    }
 
     /**
      * Gets the name of Alice.
@@ -135,8 +128,8 @@ public class Alice {
     
     private Item createItemName(String itemName) {
         switch (itemName.toLowerCase()) {
-            case "liltledrink":
-                return new LiltleDrink();
+            case "littledrink":
+                return new LittleDrink();
             case "grasnolax":
                 return new Grasnolax();
             case "doubiprane":

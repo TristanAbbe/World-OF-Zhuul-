@@ -9,10 +9,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 /**
- * Décrivez votre classe MiniGame ici.
+ * The MiniGame class represents the mini-games that can be played as part of the Alice in Wonderland game.
+ * These include a dice game and a Thumb War game.
  *
- * @author (votre nom)
- * @version (un numéro de version ou une date)
+ * @author ABBE Tristan, ANET Janelle, DELPIROU Corentin, MAZURIE Jules, PERSONNE Germain, RIVIERE Jade
+ * @version 1.0
  */
 public class MiniGame
 {
@@ -20,7 +21,7 @@ public class MiniGame
     boolean aliceWonTwins = false;
     private int a;
     /**
-     * Constructeur d'objets de classe MiniGame
+     * MiniGame class object constructor
      */
     public MiniGame()
     {
@@ -43,6 +44,11 @@ public class MiniGame
         return player1Roll;
     }
     
+    /**
+     * Method to roll a die and generate a random value between 1 and 6.
+     *
+     * @return The randomly generated value of the die.
+     */
     public int rollDice() {
         Random random = new Random();
         return random.nextInt(6) + 1; // Generates a random number between 1 and 6
@@ -72,6 +78,10 @@ public class MiniGame
         }
     }
     
+    /**
+     * Method to simulate a coin toss and determine the winner.
+     * @return The name of the winner (Alice or Twins).
+     */
     public String jouerPileOuFace() {
         Random rand = new Random();
         int resultat = rand.nextInt(2); // Génère 0 ou 1 (0:pile ou 1:face)
@@ -84,6 +94,10 @@ public class MiniGame
         }
     }
        
+    /**
+     * Method for counting the number of keyboard input events.
+     * @return The number of events (space keys) in 10 seconds.
+     */
     public static int countEvent(){
         Scanner scanner = new Scanner(System.in);
         long startTime = System.currentTimeMillis();
@@ -97,6 +111,10 @@ public class MiniGame
         return countEspace;
     }
     
+    /**
+     * Method for simulating a "Thumb War" game with a graphical button.
+     * @return An array containing the number of clicks on the button in 10 seconds.
+     */
     public int[] thumbsWar2() {
         int[] compteur = {0};
         JFrame buttonFrame = new JFrame("THUMBS WAR !!!");

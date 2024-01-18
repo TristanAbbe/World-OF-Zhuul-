@@ -5,8 +5,8 @@ import javax.swing.JOptionPane;
  * The Absolem class is a subclass of the Character class and inherits its properties and methods.
  * It introduces additional features such as the ability to ask Alice for a Doubiprane and an item (SilkThread).
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author ABBE Tristan, ANET Janelle, DELPIROU Corentin, MAZURIE Jules, PERSONNE Germain, RIVIERE Jade
+ * @version 1.0
  */
 public class Absolem extends Character {
     private SilkThread silkthread;

@@ -7,18 +7,18 @@
  * MAZURIE Jules, PERSONNE Germain, RIVIERE Jade.
  * 
  * @author ABBE Tristan, ANET Janelle, DELPIROU Corentin, MAZURIE Jules, PERSONNE Germain, RIVIERE Jade
- * @version 1.0 (Date: YYYY-MM-DD)
+ * @version 1.0 
  */
-public class LiltleDrink extends Item
+public class LittleDrink extends Item
 {
     /**
      * Constructor for objects of the LilDrink class.
      * Initializes the LilDrink with a specific name, description, and icon path.
      */
-    public LiltleDrink()
+    public LittleDrink()
     {
         // Initialization of instance variables
-        super("Little Drink",
+        super("LittleDrink",
               "Small, attractive vial containing a bluish liquid with a label reading 'inverso quis fermentum'",
               "ImagesAlice/Ptite_boisson.png");
     }
