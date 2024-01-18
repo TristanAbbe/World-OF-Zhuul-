@@ -14,7 +14,7 @@ public class RoomDeathBodyCard extends Room
      */
     public RoomDeathBodyCard(){
     
-        super("This is the end youre are dead", "The END BodyCard","ImagesAliceRedimmensionnées/Mort_Partie_perdue_Encerclement.png",30);
+        super("This is the end you are dead", "The END, BodyCards killed you","ImagesAliceRedimmensionnées/Mort_Partie_perdue_Encerclement.png",30);
     }
 
 }

@@ -10,7 +10,7 @@ public class RoomDeathHeadless extends Room
 
     public RoomDeathHeadless(){
     
-        super("This is the end youre are dead", "The END Headless","ImagesAliceRedimmensionnées/Mort_Partie_perdue_Guillotinée.png",30);
+        super("This is the end  are dead", "The END, you have been beheaded","ImagesAliceRedimmensionnées/Mort_Partie_perdue_Guillotinée.png",30);
     }
 
 }

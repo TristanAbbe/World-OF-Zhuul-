@@ -33,7 +33,7 @@ public class Absolem extends Character {
 
         // Different dialogues based on the state
         switch (getState()) {
-            case 1:
+            case 0:
                 message = "- Hello, you surely must be Absolem ? My name is Alice.\n"+
                 "- Oh... My head...... Are you real or an hallucination ?\n"+
                 "- I am a real person, mister Absolem.\n"+
@@ -45,7 +45,7 @@ public class Absolem extends Character {
                 "- Where can I find that ?\n"+
                 "-Stop talking, you hurt my head. Leave now, come back only if you have what I need.\n";
                 break;
-            case 2:
+            case 1:
                 message = "Oh you again... Please don't talk.\n"+
                 "- I have a medicatin called Doubiprane, will it suit you ?\n"+
                 "- Aargh... GIVE IT TO ME! I can't bear the pain.\n";
@@ -53,7 +53,7 @@ public class Absolem extends Character {
                 
                 //+"I am good, I don't have a headache anymore.";
                 break;
-            case 3:
+            case 2:
                 message = "- Finally! I feel better now, thank you for your help. I will grant you with the most priceless material around here."+
                 "I hope you will make great use of it.\n";
                 break;

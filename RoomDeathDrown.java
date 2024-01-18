@@ -14,7 +14,7 @@ public class RoomDeathDrown extends Room
      */
     public RoomDeathDrown(){
     
-        super("This is the end youre are dead", "The END DROWN","ImagesAliceRedimmensionnées/Mort_Partie_perdue_Noyade.png",30);
+        super("This is the end you are dead", "The END, you drown because you are too small","ImagesAliceRedimmensionnées/Mort_Partie_perdue_Noyade.png",30);
     }
 
 }

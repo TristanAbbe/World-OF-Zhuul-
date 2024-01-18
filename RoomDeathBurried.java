@@ -14,7 +14,7 @@ public class RoomDeathBurried extends Room
      */
     public RoomDeathBurried(){
     
-        super("This is the end youre are dead", "The END BURRIED","ImagesAliceRedimmensionnées/Mort_Partie_perdue_Ensevelie.png",30);
+        super("This is the end you are dead", "The END, you have died burried","ImagesAliceRedimmensionnées/Mort_Partie_perdue_Ensevelie.png",30);
     }
 
 }
