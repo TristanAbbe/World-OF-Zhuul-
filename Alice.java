@@ -228,7 +228,11 @@ public class Alice {
         }
         hunger = Math.max(0, hunger - amount);
     }
-
+    
+    public void setHunger(int amount){
+        this.hunger = amount;
+    }
+    
     /**
      * Gets the current hunger level of Alice.
      * @return The current hunger level of Alice.
@@ -238,15 +242,13 @@ public class Alice {
     }
 
     /**
-     * Feeds Alice by displaying the items in her inventory.
+     * Feeds Alice the items in her inventory.
      */
-    public void feed() {
-        if (!death) {
-            // browse the list to know if she owns a taco
-            System.out.println("Inventory:");
-            for (Item item : inventory) {
-                System.out.println(item.getName());
-            }
-        }
+    public String feed() {
+        if (this.hasItem("taco")) {
+        setHunger(100);
+        return "Alice eat very well";
+        }else 
+        return "you have no taco to eat ";
     }
 }

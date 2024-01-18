@@ -208,7 +208,7 @@ public class GUI {
         JButton moveRightButton = new JButton("East");
 
         JButton menuButton = new JButton("Menu");
-        JButton emptyButton5 = new JButton();
+        JButton eatButton = new JButton("Eat");
 
         southWestPanel.add(actionButton);
         southWestPanel.add(moveUpButton);
@@ -218,9 +218,9 @@ public class GUI {
         southWestPanel.add(moveRightButton);
         southWestPanel.add(menuButton);
         southWestPanel.add(moveDownButton);
-        southWestPanel.add(emptyButton5);
+        southWestPanel.add(eatButton);
 
-        addActionListeners(moveLeftButton, moveUpButton, moveDownButton, moveRightButton, actionButton, parlerButton, exitButton);
+        addActionListeners(moveLeftButton, moveUpButton, moveDownButton, moveRightButton, actionButton, parlerButton, exitButton,eatButton);
         
         menuButton.addActionListener(new ActionListener(){
             @Override
@@ -298,6 +298,8 @@ public class GUI {
             case "Exits":
                 sortie();
                 break;
+            case "Eat":
+                eat();
             default:
                 // Handle other button actions if needed
                 break;
@@ -449,13 +451,20 @@ public class GUI {
                 System.out.println("Balise 1");
                 break;
         }
-        System.out.println("Balise 2");
         updateHungerProgressBar();
         updateRoomInfo();
         updateInventoryLabel();
         updateRoomImage();    
         
     }
+    
+    /**
+     * Handles the "Eat" button click, triggering the restauration of the hunger if alice have a tacos.
+     */
+    public void eat(){
+        appendDialogue(game.getAlice().feed());
+    }
+    
     
     /**
      * Handles the "Parler" button click, triggering a dialogue with characters in the current room.
