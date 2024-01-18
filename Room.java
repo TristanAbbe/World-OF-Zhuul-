@@ -174,7 +174,7 @@ public class Room {
      *
      * @return The first character in the list.
      */
-    public Character getCharacter(List<Character> characterList ){
+    public Character getCharacter(){
         Character characterInList = characterList.get(0);
         return characterInList;
     }

@@ -79,7 +79,7 @@ public class Character {
      * Adds an item to Alice's inventory based on its name.
      * @param itemName The name of the item to add to Alice's inventory.
      */
-    public void addItem(String itemName) {
+    public void addItemSpe(String itemName) {
         
         try {
             Item newItem = createItemName(itemName);
@@ -93,7 +93,7 @@ public class Character {
     private Item createItemName(String itemName) {
         switch (itemName.toLowerCase()) {
             case "liltle drink":
-                return new LiltleDrink();
+                return new LittleDrink();
             case "grasnolax":
                 return new Grasnolax();
             case "doubiprane":
