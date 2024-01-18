@@ -234,6 +234,7 @@ public class AliceInWonderlandGame extends JFrame {
                         currentRoom.getCharacter().addItemSpe(itemName);
                         currentRoom.getCharacter().setItemQuest(true);
                         alice.addItem(recievedItem);
+                        
                         if (recievedItem.equals("Helmet")){
                             alice.setHaveHelmet(true);
                         }
@@ -260,6 +261,11 @@ public class AliceInWonderlandGame extends JFrame {
         }
     }
     
+    public void hit(GloriousRabbitHole hole){
+        if (hole.getHit()<5){
+            hole.setHit();
+        }
+    }
     
     public void flushToilet(JoylessToilets toilette){
         if (toilette.getCountFlushRoyal() < 5) {
@@ -291,7 +297,7 @@ public class AliceInWonderlandGame extends JFrame {
                     alice.removeItem("Grasnolax");
                     canMove = alice.getHeight() == 1;
                 }   
-            } else if (nextRoom.getName().equals("Bunny Lobby")) {
+            } else if (nextRoom.getName().equals("Bunny Lobby")&& alice.getHeight() == 1) {
                 if (alice.hasItem("LittleDrink")){
                     alice.setHeight(0);
                     alice.removeItem("LittleDrink");

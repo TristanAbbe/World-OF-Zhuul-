@@ -1,7 +1,6 @@
 /**
  * The Item class represents a generic object with a name, description, and an optional icon path.
  *
- *
  * @author ABBE Tristan, ANET Janelle, DELPIROU Corentin, MAZURIE Jules, PERSONNE Germain, RIVIERE Jade
  * @version 1.0 (Date: 2024-01-05)
  */
